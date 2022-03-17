@@ -1,6 +1,47 @@
-@import url('https://fonts.googleapis.com/css2?family=Alegreya+SC:wght@500&display=swap');
+$red: #EE1C25;
+$red_30: rgba($red,0.3);
+$red_50: rgba($red,0.5);
+$black: #010000;
+$black_30: rgba($black,0.3);
+$black_50: rgba($black,0.5);
+$white: #FFFFFF;
+$white_50: rgba($white,0.5);
+$gray: #666B6A;
+$brown: #F2A359;
+$brown_30: rgba($brown,0.3);
+$brown_50: rgba($brown,0.5);
+
+// -----
+
+$stone: #634943;
+$wind: #F1F1F1;
+$serpent: #292A47;
+$love: #E68FA5;
+$fire: #EE2F3D;
+$mist: #608C98;
+$insect: #4E4281;
+$sound: #B1AAB6;
+$water: #0287EB;
+$sun: #EEA173;
+$moon: #C9DEE6;
+$lighting: #FADC76;
+$beast: #CB9470;
+
+// -----
+
+/*
+    Opens Sans:
+        Font Weight: 400 (Regular)
+        Font Style: Normal, Italic
+    Alegreya SC:
+        Font Weight: 400 (Regular), 500 (Medium)
+        Font Style: Normal
+*/
+@import url('https://fonts.googleapis.com/css2?family=Alegreya+SC:wght@400;500&family=Open+Sans:ital@0;1&display=swap');
+
+
 
 body{
-    background-color: #666B6A;
+    background-color: $gray;
 }
 
