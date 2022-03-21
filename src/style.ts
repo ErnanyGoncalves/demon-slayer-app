@@ -4,17 +4,17 @@ export const GlobalStyle = createGlobalStyle`
 
     :root{
         --red: #EE1C25;
-        --red-30: rgba(var(--red),0.3);
-        --red-50: rgba(var(--red),0.5);
+        --red-30: #EE1C254D;
+        --red-50: #EE1C2580;
         --black: #010000;
-        --black-30: rgba(var(--black),0.3);
-        --black-50: rgba(var(--black),0.5);
+        --black-30: #0100004D;
+        --black-50: #01000080;
         --white: #FFFFFF;
-        --white-50: rgba(var(--white),0.5);
+        --white-50: #FFFFFF80;
         --gray: #666B6A;
         --brown: #F2A359;
-        --brown-30: rgba(var(--brown),0.3);
-        --brown-50: rgba(var(--brown),0.5);
+        --brown-30: #F2A3594D;
+        --brown-50: #F2A35980;
 
         
         --stone: #634943;
@@ -43,6 +43,7 @@ export const GlobalStyle = createGlobalStyle`
         display: flex;
         justify-content:center;
         align-items: center;
+        margin: 0;
 
         .container{
             display: flex;
