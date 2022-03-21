@@ -18,5 +18,6 @@ export const Button = styled.button`
         
         :hover,:focus{
             outline: 2px solid #EE1C25;
+            transition: outline 0.1s ease-in;
         }        
 `
