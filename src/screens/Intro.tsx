@@ -22,6 +22,7 @@ const IntroWrapper = styled.div`
     p{
         text-align: center;
         max-width: 246px;
+        font-family: "Open Sans", sans-serif;
         margin: 2rem 0 4rem 0;
     }
 `
