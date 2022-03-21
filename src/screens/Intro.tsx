@@ -7,7 +7,6 @@ const IntroWrapper = styled.div`
     padding: 0 20px;
     display:  flex;
     flex-direction:column;
-    flex: 1;
     align-items: center;
     justify-content: center;
     height:100%;

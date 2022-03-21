@@ -53,12 +53,6 @@ export const GlobalStyle = createGlobalStyle`
             width:100%;
             height: 984px;
             max-width:1440px;
-
-            .core{
-                height:100%;
-                width: 956px;
-                background-color: blue;
-            }
         }
     }
 `;

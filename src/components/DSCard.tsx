@@ -14,8 +14,10 @@ const DSCardWrapper = styled.a`
     box-shadow: 0 4px 4px 2px var(--black-30);    
 
     img{
-        max-width:108px;
-        max-height:108px;
+        width:108px;
+        height:108px;
+        max-width:100%;
+        max-height:100%;
         border: 2px solid var(--black);
         border-radius: 50%;
     }
@@ -25,17 +27,72 @@ const DSCardWrapper = styled.a`
     }
 
 
+    &.stone{
+        background: var(--stone) linear-gradient(transparent, var(--black-50));
+        color: var(--white);
+    }
+    &.wind{
+        background: var(--wind) linear-gradient(transparent, var(--black-50));
+        color: var(--black);
+    }
+    &.serpent{
+        background: var(--serpent) linear-gradient(transparent, var(--black-50));
+        color: var(--white);
+    }
+    &.love{
+        background: var(--love) linear-gradient(transparent, var(--black-50));
+        color: var(--black);
+    }
+    &.fire{
+        background: var(--fire) linear-gradient(transparent, var(--black-50));
+        color: var(--white);
+    }
+    &.mist{
+        background: var(--mist) linear-gradient(transparent, var(--black-50));
+        color: var(--white);
+    }
     &.insect{
         background: var(--insect) linear-gradient(transparent, var(--black-50));
         color: var(--white);
     }
+    &.sound{
+        background: var(--sound) linear-gradient(transparent, var(--black-50));
+        color: var(--black);
+    }
+    &.water{
+        background: var(--water) linear-gradient(transparent, var(--black-50));
+        color: var(--white);
+    }
+    &.sun{
+        background: var(--sun) linear-gradient(transparent, var(--black-50));
+        color: var(--black);
+    }
+    &.lighting{
+        background: var(--lighting) linear-gradient(transparent, var(--black-50));
+        color: var(--black);
+    }
+    &.beast{
+        background: var(--beast) linear-gradient(transparent, var(--black-50));
+        color: var(--black);
+    }
+    &.moon{
+        background: var(--moon) linear-gradient(transparent, var(--black-50));
+        color: var(--black);
+    }
 `
 
-export const DSCard = () => {
+interface Props {
+    name: string;
+    theme: string;
+    photo: string;
+    emoji: string;
+}
+
+export const DSCard = ({name,theme,photo,emoji} : Props) => {
   return (
-    <DSCardWrapper className={`insect`} href="#">
-        <img className='cardPicture' src="https://i.pinimg.com/originals/67/bc/f1/67bcf160c0643d61b6d9da16e564d96b.jpg" alt="Shinobu Kocho" />
-        Shinobu Kocho &#129419;
+    <DSCardWrapper className={theme} href="#">
+        <img className='cardPicture' src={photo} alt={name} />
+        {name} {emoji}
     </DSCardWrapper>
   )
 }

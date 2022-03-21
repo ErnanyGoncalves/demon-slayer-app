@@ -29,12 +29,14 @@ const icons = new Map<IconNames, any>()
 
 
 const IconWrapper = styled.i<Omit<Props, "name">>`
-        img{
-            height: ${props => props.size};
-            width: 2rem;
-            background-repeat:no-repeat;
-            background-size: 100% 100%;
-        }
+    &, img{
+        height: ${props => props.size};
+        width: 2rem;
+    }
+    img{   
+        background-repeat:no-repeat;
+        background-size: 100% 100%;
+    }
 `
 
 export const Icon = ({ size = "2rem", name = "add" }: Props) => {
