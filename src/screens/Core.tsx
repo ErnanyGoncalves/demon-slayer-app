@@ -1,9 +1,9 @@
 import styled from 'styled-components'
 import { DSCardList } from '../components/DSCardList'
 import { Pagination } from '../components/Pagination'
+import { Info } from './Info'
 
 const CoreWrapper = styled.div`
-    margin: 197px 0;
     padding: 0 89px;
     height:100%;
     width: 956px;
@@ -17,7 +17,8 @@ export const Core = () => {
   return (
     <CoreWrapper>
         {/* <DSCardList /> */}
-        <Pagination />
+        {/* <Pagination /> */}
+        <Info />
     </CoreWrapper>
   )
 }
