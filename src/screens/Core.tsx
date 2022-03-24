@@ -6,7 +6,7 @@ import { Info } from './Info'
 const CoreWrapper = styled.div`
     padding: 0 89px;
     height:100%;
-    width: 956px;
+    width: 778px;
     background-color: var(--white-50);
     display:flex;
     justify-content: center;

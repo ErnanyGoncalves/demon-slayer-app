@@ -1,5 +1,9 @@
 import styled from "styled-components"
 
+interface Props {
+    backstory?: string;
+}
+
 const InfoBackstoryWrapper = styled.div`
     .hr{
         width: 68px;
@@ -19,16 +23,18 @@ const InfoBackstoryWrapper = styled.div`
         font-size: 16px;
         font-family: "Open Sans", sans-serif;
         width: 778px;
+        margin: 0;
+        margin-right: 0;
     }
 
 `
 
-export const InfoBackstory = () => {
+export const InfoBackstory = ({backstory}: Props) => {
     return (
         <InfoBackstoryWrapper>
             <div className="hr" />
             <label>Backstory:</label>
-            <p>Kyojuro was the eldest son of Shinjuro Rengoku. His father was known as the Flame Hashira of the Demon Slayer Corps until his unexpected retirement. Kyojuro also had a younger brother who trained alongside him until their father ceased to teach them.</p>
+            <p>{backstory}</p>
         </InfoBackstoryWrapper>
     )
 }

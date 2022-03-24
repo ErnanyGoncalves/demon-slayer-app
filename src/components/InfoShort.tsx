@@ -1,5 +1,14 @@
 import styled from "styled-components"
 
+interface Props {
+    name: string;
+    age: number;
+    power: string;
+    emoji: string;
+    photo: string;
+    gender: string;
+}
+
 const InfoShortWrapper = styled.div`
     display: flex;
     gap: 20px;
@@ -30,23 +39,23 @@ const InfoShortWrapper = styled.div`
     
 `
 
-export const InfoShort = () => {
+export const InfoShort = ({name,age,power,emoji,photo,gender}: Props) => {
 
     return (
         <InfoShortWrapper>
-            <img src="https://nerdhits.com.br/wp-content/uploads/2021/10/Kyojuro-Rengoku-Hashira-Demon-Slayer.jpg" alt="Kyōjurō Rengoku" />
+            <img src={photo} alt={name} />
             <div>
-                <h1>Kyōjurō Rengoku</h1>
+                <h1>{name}</h1>
                 <div>
-                    <label>Age: <span>20 years</span></label>
+                    <label>Age: <span>{age} year{age > 1 && 's'}</span></label>
 
                 </div>
                 <div>
-                    <label>Gender: <span>Male</span></label>
+                    <label>Gender: <span>{gender}</span></label>
 
                 </div>
                 <div>
-                    <label>Power: <span>Fire 🔥</span></label>
+                    <label>Power: <span>{power} {emoji}</span></label>
                 </div>
             </div>
         </InfoShortWrapper>

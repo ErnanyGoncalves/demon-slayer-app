@@ -3,14 +3,13 @@ import { Button } from "../components/Button";
 import { Icon } from "../components/Icon";
 
 const IntroWrapper = styled.div`
-    margin: 197px 0;
     padding: 0 20px;
     display:  flex;
     flex-direction:column;
     align-items: center;
     justify-content: center;
     height:100%;
-    width: 424px;
+    width: 384px;
     background-color: var(--white-50);
     
     .logo{
