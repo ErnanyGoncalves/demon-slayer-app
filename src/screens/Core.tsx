@@ -1,5 +1,7 @@
 import styled from 'styled-components'
 import { DSCardList } from '../components/DSCardList'
+import { Icon } from '../components/Icon'
+import { Input } from '../components/Input'
 import { Pagination } from '../components/Pagination'
 import { Info } from './Info'
 
@@ -16,9 +18,12 @@ const CoreWrapper = styled.div`
 export const Core = () => {
   return (
     <CoreWrapper>
-        {/* <DSCardList /> */}
-        {/* <Pagination /> */}
-        <Info />
+      {/* <DSCardList /> */}
+      {/* <Pagination /> */}
+      {/* <Info /> */}
+      <div>
+        <Input width='335px' placeholder="Teste" />
+      </div>
     </CoreWrapper>
   )
 }

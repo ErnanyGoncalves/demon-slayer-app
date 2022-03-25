@@ -5,7 +5,7 @@ import { Icon } from '../components/Icon'
 import { InfoBackstory } from '../components/InfoBackstory'
 import { InfoShort } from '../components/InfoShort'
 
-
+// TEMPORÁRIO
 const infoMock = {
     "name": "Kyojuro Rengoku",
     "age": 20,
