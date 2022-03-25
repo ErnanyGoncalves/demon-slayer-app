@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { DSCardList } from '../components/DSCardList'
+import { EmojiPicker } from '../components/EmojiPicker'
 import { Icon } from '../components/Icon'
 import { Input } from '../components/Input'
 import { List } from '../components/List'
@@ -26,7 +27,8 @@ export const Core = () => {
       {/* <Info /> */}
       <div>
         {/* <Input width='335px' placeholder="Teste" /> */}
-        <List options={options} width='246px' />
+        {/* <List options={options} width='246px' /> */}
+        <EmojiPicker />
       </div>
     </CoreWrapper>
   )

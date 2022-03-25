@@ -12,6 +12,7 @@ const ListWrapper = styled.select<Omit<Props, "options">>`
         box-sizing:border-box;        
         padding: 18px 14px;
         font-size: 16px;
+        cursor: pointer;
         background-color: var(--white);
         font-family: "Open Sans", sans-serif;
         width: ${props => props.width};

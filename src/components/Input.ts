@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 interface Props{
     width: string;
+    value?: string;
 }
 
 /** @TODO Achar uma forma de colocar icone no input (não obrigatório)  */
