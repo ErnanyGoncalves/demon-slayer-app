@@ -3,6 +3,9 @@ import styled from "styled-components";
 interface Props{
     width: string;
     value?: string;
+    onFocus?: any;
+    onBlur?: any;
+    onKeyDown?: any;
 }
 
 /** @TODO Achar uma forma de colocar icone no input (não obrigatório)  */
