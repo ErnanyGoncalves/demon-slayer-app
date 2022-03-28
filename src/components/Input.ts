@@ -14,6 +14,7 @@ export const Input = styled.input<Props>`
         box-sizing:border-box;        
         padding: 18px 14px;
         font-size: 16px;
+        color:var(--black);
         background-color: var(--white);
         font-family: "Open Sans", sans-serif;
         width: ${props => props.width};

@@ -23,8 +23,6 @@ const InfoShortWrapper = styled.div`
     }
     h1{
         color: var(--red);
-        font-size: 54px;
-        font-weight: 400;
         margin: 0 0 24px 0;
     }
     label{

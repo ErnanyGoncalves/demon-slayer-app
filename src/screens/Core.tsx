@@ -5,7 +5,10 @@ import { FormField } from '../components/FormField'
 import { Icon } from '../components/Icon'
 import { Input } from '../components/Input'
 import { List } from '../components/List'
+import ModalCard from '../components/ModalCard'
+import {PageHeader} from '../components/PageHeader'
 import { Pagination } from '../components/Pagination'
+import { Textarea } from '../components/Textarea'
 import { Info } from './Info'
 
 const CoreWrapper = styled.div`
@@ -14,7 +17,7 @@ const CoreWrapper = styled.div`
     width: 778px;
     background-color: var(--white-50);
     display:flex;
-    justify-content: center;
+    /* justify-content: center; */
 
 `
 // Temporário!!!
@@ -26,14 +29,13 @@ export const Core = () => {
       {/* <DSCardList /> */}
       {/* <Pagination /> */}
       {/* <Info /> */}
+      {/* <PageHeader highlight="New" title="Demon Slayer" /> */}
+      {/* <Textarea /> */}
+      <ModalCard />
       <div>
         {/* <Input width='335px' placeholder="Teste" /> */}
         {/* <List options={options} width='246px' /> */}
-        <FormField />
-        <FormField />
-        <FormField />
-        <FormField />
-        <FormField />
+        {/* <FormField />         */}
       </div>
     </CoreWrapper>
   )
