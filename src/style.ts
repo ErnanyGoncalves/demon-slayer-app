@@ -38,6 +38,10 @@ export const GlobalStyle = createGlobalStyle`
         font-weight: 400;
     }
 
+    h2{
+        font-size: 36px;
+    }
+
     body{
         background-color: var(--gray);
         padding: 1.25rem;

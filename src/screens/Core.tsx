@@ -31,7 +31,7 @@ export const Core = () => {
       {/* <Info /> */}
       {/* <PageHeader highlight="New" title="Demon Slayer" /> */}
       {/* <Textarea /> */}
-      <ModalCard />
+      <ModalCard messageType="danger" title="Something is wrong" text="alalla" />
       <div>
         {/* <Input width='335px' placeholder="Teste" /> */}
         {/* <List options={options} width='246px' /> */}

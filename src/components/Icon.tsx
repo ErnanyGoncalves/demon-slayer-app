@@ -31,7 +31,7 @@ const icons = new Map<IconNames, any>()
 const IconWrapper = styled.i<Omit<Props, "name">>`
     &, img{
         height: ${props => props.size};
-        width: 2rem;
+        width: ${props => props.size};
     }
     img{   
         background-repeat:no-repeat;
