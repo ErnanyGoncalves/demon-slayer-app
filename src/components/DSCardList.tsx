@@ -1,139 +1,8 @@
+import axios from 'axios';
+import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { DSCard } from './DSCard';
 
-/* TEMPORÁRIO! */
-const dsList = [
-    {
-        "name": "Gyomei Himejima",
-        "age": 27,
-        "gender": "Male",
-        "backstory": "Gyomei embodies the gentle giant archtype, being surprisingly soft-spoken and sensitive, despite his intimidating appearance. He is also shown to be quite pious, carrying his prayer beads at all times and offering prayers in poignant situations. Most notably, Gyomei easily cries over the most insignificant things, accentuating his rather soft nature. This could be due to his love for all living creatures brought about by his religious upbringing, and insinuated when he felt so disgusted by beating up a demon that he would never forget that feeling for the rest of his life.",
-        "photo": "https://criticalhits.com.br/wp-content/uploads/2022/02/Gyomei-Himejima.jpg",
-        "power": "Stone",
-        "theme": "stone",
-        "emoji": "💎"
-    },
-    {
-        "name": "Sanemi Shinazugawa",
-        "age": 21,
-        "gender": "Male",
-        "backstory": "Sanemi is abrasive, hot-blooded, extroverted, and stubborn, often times impulsive and quick to lash out. He is often indifferent towards others and can get mad extremely easily. The only person Sanemi displayed reverence towards was Kagaya Ubuyashiki, and only after realizing the man was much more than his outward appearance suggested. Sanemi has also displayed a hunger for battle, wishing that he could encounter Upper Rank demons and proclaiming his joy for fighting Upper Rank One, Kokushibo.",
-        "photo": "https://i.pinimg.com/564x/a7/f6/5d/a7f65d55ffcddc692bab845bb432ed84.jpg",
-        "power": "Wind",
-        "theme": "wind",
-        "emoji": "🍃"
-    },
-    {
-        "name": "Obanai Iguro",
-        "age": 21,
-        "gender": "Male",
-        "backstory": "Obanai is a very harsh and strict individual who shows no concern for those who do not abide by the Demon Slayer rules. His expectations for his fellow Demon Slayers are nigh-unrealistic, berating Tengen Uzui for suffering heavy wounds against the 'weakest' Upper Rank and telling him to 'fight to the death' when Tengen insists on retiring. Tengen's retirement also highlights Obanai's devotion to the future of the Demon Slayer Corps, often at others' expense, such as when he ties up lower-ranked Demon Slayers and uses them as obstacles during Hashira Training for relatively petty reasons. He also sees the newer Demon Slayer recruits as weak and incapable of improvement, expressing surprise when Tengen informs him that Tanjiro Kamado survived the battle with Daki and Gyutaro.",
-        "photo": "https://i.pinimg.com/736x/36/11/89/3611898abe2e2e9d0e715aaedc357726.jpg",
-        "power": "Serpent",
-        "theme": "serpent",
-        "emoji": "🐍"
-    },
-    {
-        "name": "Mitsuri Kanroji",
-        "age": 19,
-        "gender": "Female",
-        "backstory": "Mitsuri is a very emotional, passionate, and jovial individual who constantly compliments people in her head, likely a contributing factor towards her nickname as 'the Hashira of Love.' Although she is rather shy and is easily flustered, Mitsuri is always kind to others, most notably towards Obanai, whom she appears to share a strong bond with. However, despite her gentle and seemingly innocent demeanor, Mitsuri will show no mercy in the face of demons, instead expressing such sentiments with a fierce tone. She showcases a great amount of dedication to the Demon Slayers' cause. Despite being put out of commission by Muzan at an early stage in their battle, she was determined enough to return and fight.",
-        "photo": "https://criticalhits.com.br/wp-content/uploads/2021/06/Mitsuri-Kanroji-1.jpg",
-        "power": "Love",
-        "theme": "love",
-        "emoji": "💘"
-    },
-    {
-        "name": "Kyojuro Rengoku",
-        "age": 20,
-        "gender": "Male",
-        "backstory": "Kyojuro was greatly enthusiastic in regard to his duties as a Hashira, and often came across as cheerfully eccentric. He was amiable, pure of heart, and boasted extraordinary technique and swordsmanship stemming from strict practice and discipline. He was an honorable warrior who adhered to his code of morals and principles that was instilled into him by his mother at a young age—the most significant being his belief that those who were born strong have a duty to protect the weak.",
-        "photo": "https://nerdhits.com.br/wp-content/uploads/2021/10/Kyojuro-Rengoku-Hashira-Demon-Slayer.jpg",
-        "power": "Fire",
-        "theme": "fire",
-        "emoji": "🔥"
-    },
-    {
-        "name": "Muichiro Tokito",
-        "age": 14,
-        "gender": "Male",
-        "backstory": "Muichiro is an air-headed individual who seems to constantly wander off in thought and is unable to focus at anything. Impassive and, at times, obtuse, he tends to think only for himself and operates on logic alone, never letting emotion guide him, making him seem completely apathetic and indifferent. But, Tanjiro sensed that Muichiro wasn't being so apathetic on purpose as he didn't emanate any animosity. Despite his uncaring and unserious demeanor, he has been shown to get serious when it is required and is devoted to his position as the Demon Slayer Corps' Mist Hashira. Alternatively he seems to display a cold and arrogant side; violently shaking down Kotetsu and calling him stupid, saying his time as a Hashira was super important, much more important than his own, and that all the swordsmiths could do was make weapons. Though, Muichiro doesn't seem to be indifferent towards Kagaya Ubuyashiki, most likely due to his immense respect for his master.",
-        "photo": "https://i.pinimg.com/550x/88/7e/c7/887ec76925b84a114abdd2161b4f3446.jpg",
-        "power": "Mist",
-        "theme": "mist",
-        "emoji": "🌫"
-    },
-    {
-        "name": "Shinobu Kocho",
-        "age": 18,
-        "gender": "Female",
-        "backstory": "Shinobu displays a bright, friendly and cheerful demeanor, always having an easygoing smile on her face regardless of the situation she is in. However, her outward behavior is shown very quickly to be a façade. This is displayed in the way she enjoys teasing others, to the point of being rather sadistic about it, enjoying most notably to pick on Giyu Tomioka. Despite her relaxed exterior and her initial claim of wanting to get along with demons, she can be rather cruel towards them, which is seen when she kills the Spider Demon (Daughter) after giving her false hope of helping her, and attempting to kill Nezuko Kamado without hesitation. Later on, she is shown to have a more compassionate side towards both Tanjiro Kamado and his sister after hearing their full story.",
-        "photo": "https://i.pinimg.com/originals/67/bc/f1/67bcf160c0643d61b6d9da16e564d96b.jpg",
-        "power": "Insect",
-        "theme": "insect",
-        "emoji": "🦋"
-    },
-    {
-        "name": "Tengen Uzui",
-        "age": 23,
-        "gender": "Male",
-        "backstory": "Tengen is an eccentric and flashy individual, always wanting to be 'flamboyant', possessing a need for everything to be flashy and outstanding, even proclaiming that he is the god of flashiness and festivals. This is shown when he gets excited imagining how 'flamboyant' it would be if Tanjiro Kamado's blood vessels exploded, and tries to forcefully haul Aoi Kanzaki off to the Entertainment District with him so she can unwillingly help him with a dangerous mission, even spanking her. As a result of his exuberant and flamboyant personality, Tengen is very demanding of others, treating the Demon Slayers very harshly during the Hashira Training Arc and insulting them for having no substance when they couldn't survive his stamina training. Furthermore, he also abhors the idea of unflashy things, as shown when the Hashira openly expresses his hate for plainness.",
-        "photo": "https://br.atsit.in/wp-content/uploads/2022/01/tengen-uzui-morre-em-demon-slayer.jpg",
-        "power": "Sound",
-        "theme": "sound",
-        "emoji": "🔈"
-    },
-    {
-        "name": "Giyu Tomioka",
-        "age": 21,
-        "gender": "Male",
-        "backstory": "Giyu always wears a stoic and unbothered expression on his face. However, he has a reserved personality and a very strong sense of justice with no tolerance towards those who don't know their own limitations and throw away their lives. Despite letting Nezuko Kamado live due to Tanjiro Kamado's persistence, he shows zero hesitation when killing other demons and has no respect or mercy towards them like most Demon Slayers. Even so, Giyu violated the Demon Slayer Corps' code of conduct without hesitation to protect Nezuko during Shinobu's attempt to kill her. This implies that he doesn't completely despise demons as some other Hashira do, and is willing to make an exception for a demon by letting them live if they don't kill and eat humans. This shows that he is more pragmatic in dealing with demons rather letting his hatred cloud his judgement.",
-        "photo": "https://nerdhits.com.br/wp-content/uploads/2021/11/Demon-Slayer-Giyu-Angry-Snowing.jpg",
-        "power": "Water",
-        "theme": "water",
-        "emoji": "💧"
-    },
-    {
-        "name": "Tanjiro Kamado",
-        "age": 16,
-        "gender": "Male",
-        "backstory": "Tanjiro is very kind by nature and has been described by others as having very gentle eyes and a compassionate persona. He exhibits a great deal of determination and will not give up once he has a goal to achieve; the best example of this being his relentless quest to find a cure for Nezuko. Even though he is relatively strong on his own, Tanjiro isn't opposed to asking others for help when he needs it. He is very protective of his friends and even more so of his younger sister. However, despite his kind and understanding nature, Tanjiro does have a limit to his tolerance and has a distaste for rudeness and cowardice as he easily becomes annoyed by Zenitsu Agatsuma's constant whining, and angered by Inosuke Hashibira's barbaric actions.",
-        "photo": "https://i.pinimg.com/originals/60/ce/6b/60ce6b4120bb393893c3040883b9c26e.jpg",
-        "power": "Water / Sun",
-        "theme": "sun",
-        "emoji": "🌞"
-    },
-    {
-        "name": "Zenitsu Agatsuma",
-        "age": 16,
-        "gender": "Male",
-        "backstory": "Zenitsu comes off as a coward, as he often claims that he doesn't have long to live due to the dangerous job of being a Demon Slayer. He also has rather low self-esteem despite his strength, even considering himself useless as seen when he couldn't believe he had slain a demon and tricked himself into instead believing that it was Shoichi, even though the latter was a young child who didn't possess any form of special demon-slaying ability. Zenitsu is in a constant state of fear and always cries and tries to run away at the sight of danger, claiming he wants to live a modest, normal life, instead of that of a Demon Slayer. Due to this, Zenitsu screams and shouts a lot, sometimes annoying the people around him. He is also shown to be pessimistic at times, especially during the Hashira Training Arc where he lashed out at Tanjiro and Inosuke for viewing the training positively.",
-        "photo": "http://pm1.narvii.com/7279/d235bf5f96231f927de14344c3ea70c9931678d6r1-828-804v2_uhq.jpg",
-        "power": "Lighting",
-        "theme": "lighting",
-        "emoji": "⚡"
-    },
-    {
-        "name": "Inosuke Hashibira",
-        "age": 15,
-        "gender": "Male",
-        "backstory": "Inosuke is an extremely short-tempered and proud young man who always likes to think he is the strongest fighter in a situation, constantly challenging most people he comes across and wanting others to respect and praise him for his skill. This often leads him into unnecessary danger, since he tends to overestimate his abilities in comparison to who he's fighting and refuses to accept when he's been defeated, which can be seen when Giyu Tomioka has to tie him up after his fight with the Father Spider Demon to prevent him challenging the Hashira to a fight while still severely injured from his previous battle. This constant wanting to be the best can also cause Inosuke to be very provocative, as he often tries to goad others, most prominently Tanjiro Kamado, into fighting him, although in the case of the latter he usually fails due to Tanjiro's obliviously kind nature.",
-        "photo": "https://sm.ign.com/t/ign_br/screenshot/default/kimetsu-no-yaiba-inosuke-cosplay_ra8m.1200.jpg",
-        "power": "Beast",
-        "theme": "beast",
-        "emoji": "🐗"
-    },
-    {
-        "name": "Yoriichi Tsugikuni",
-        "age": 24,
-        "gender": "Male",
-        "backstory": "Yoriichi was a calm and respectful individual who wore a solemn and reserved expression at all times, rarely showing outbreaks of emotion. Generally, Yoriichi had a matching low and serene disposition, evident when he killed demons without changing expression or when Muzan was caught off guard by his immense skill because he appeared unassuming. Because of his gentle disposition and unchanging facial expression, most could not tell what he was feeling: the only person who could read his feelings without difficulty was his wife Uta. He was also extremely humble, seeing himself as just another man and no one special despite his godly attributes; an example being the time he performed the Sun Breathing's forms for Suyako at her request and almost seemed embarrassed afterwards. Yoriichi was also noted by his brother to always have had faith in the future and was confident that despite the immense power of the Demon Slayers after they started using Breathing Styles, a generation would emerge that would surpass their own.",
-        "photo": "https://i0.wp.com/nouse.com.br/wp-content/uploads/2021/12/yoriichi-mais-forte-demon-slayer-1200x720-1.jpg",
-        "power": "Moon",
-        "theme": "moon",
-        "emoji": "🌙"
-    }
-];
 
 const CardListWrapper = styled.div`
     display:grid;
@@ -142,9 +11,18 @@ const CardListWrapper = styled.div`
 `;
 
 export const DSCardList = () => {
-  return (
-    <CardListWrapper>
-        {dsList.map(({name,theme,photo,emoji}) => <DSCard key={name} name={name} theme={theme} photo={photo} emoji={emoji} />)}
-    </CardListWrapper>
-  )
+
+    const [dsList, setDSList] = useState([]);
+    useEffect(() => {
+        axios.get("http://localhost:3000/demon-slayers")
+            .then(({ data }: any) => setDSList(data))
+            .catch((err: any) => console.log(err));
+    }, []);
+
+
+    return (
+        dsList && <CardListWrapper>
+            {dsList.map(({ id, name, theme, photo, emoji }) => <DSCard key={id} id={id} name={name} theme={theme} photo={photo} emoji={emoji} />)}
+        </CardListWrapper>
+    )
 }

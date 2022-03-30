@@ -32,7 +32,7 @@ const InfoWrapper = styled.div`
     
 `
 
-export const Info = () => {
+export const InfoDS = () => {
     return (
         <InfoWrapper>
             <InfoShort name={infoMock.name} age={infoMock.age} power={infoMock.power} emoji={infoMock.emoji} photo={infoMock.photo} gender={infoMock.gender} />

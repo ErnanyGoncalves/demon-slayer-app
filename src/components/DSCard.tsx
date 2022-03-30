@@ -1,6 +1,7 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components'
 
-const DSCardWrapper = styled.a`
+const DSCardWrapper = styled(Link)`
     width: 379px;
     height: 180px;
     box-sizing: border-box;
@@ -82,15 +83,16 @@ const DSCardWrapper = styled.a`
 `
 
 interface Props {
+    id: number;
     name: string;
     theme: string;
     photo: string;
     emoji: string;
 }
 
-export const DSCard = ({name,theme,photo,emoji} : Props) => {
+export const DSCard = ({id,name,theme,photo,emoji} : Props) => {
   return (
-    <DSCardWrapper className={theme} href="#">
+    <DSCardWrapper className={theme} to={`/demon-slayer/${id}`}>
         <img className='cardPicture' src={photo} alt={name} />
         {name} {emoji}
     </DSCardWrapper>
