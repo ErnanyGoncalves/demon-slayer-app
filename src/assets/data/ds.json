@@ -9,7 +9,7 @@
             "photo": "https://criticalhits.com.br/wp-content/uploads/2022/02/Gyomei-Himejima.jpg",
             "power": "Stone",
             "theme": "stone",
-            "emoji": "&#129704;"
+            "emoji": "💎"
         },
         {
             "id": 2,
@@ -20,7 +20,7 @@
             "photo": "https://i.pinimg.com/564x/a7/f6/5d/a7f65d55ffcddc692bab845bb432ed84.jpg",
             "power": "Wind",
             "theme": "wind",
-            "emoji": "&#127788;"
+            "emoji": "🍃"
         },
         {
             "id": 3,
@@ -31,7 +31,7 @@
             "photo": "https://i.pinimg.com/736x/36/11/89/3611898abe2e2e9d0e715aaedc357726.jpg",
             "power": "Serpent",
             "theme": "serpent",
-            "emoji": "&#128013;"
+            "emoji": "🐍"
         },
         {
             "id": 4,
@@ -42,7 +42,7 @@
             "photo": "https://criticalhits.com.br/wp-content/uploads/2021/06/Mitsuri-Kanroji-1.jpg",
             "power": "Love",
             "theme": "love",
-            "emoji": "&#10084;"
+            "emoji": "💘"
         },
         {
             "id": 5,
@@ -53,7 +53,7 @@
             "photo": "https://nerdhits.com.br/wp-content/uploads/2021/10/Kyojuro-Rengoku-Hashira-Demon-Slayer.jpg",
             "power": "Fire",
             "theme": "fire",
-            "emoji": "&#128293;"
+            "emoji": "🔥"
         },
         {
             "id": 6,
@@ -64,7 +64,7 @@
             "photo": "https://i.pinimg.com/550x/88/7e/c7/887ec76925b84a114abdd2161b4f3446.jpg",
             "power": "Mist",
             "theme": "mist",
-            "emoji": "&#9729;"
+            "emoji": "🌫"
         },
         {
             "id": 7,
@@ -75,7 +75,7 @@
             "photo": "https://i.pinimg.com/originals/67/bc/f1/67bcf160c0643d61b6d9da16e564d96b.jpg",
             "power": "Insect",
             "theme": "insect",
-            "emoji": "&#129419;"
+            "emoji": "🦋"
         },
         {
             "id": 8,
@@ -86,7 +86,7 @@
             "photo": "https://br.atsit.in/wp-content/uploads/2022/01/tengen-uzui-morre-em-demon-slayer.jpg",
             "power": "Sound",
             "theme": "sound",
-            "emoji": "&#128266;"
+            "emoji": "🔈"
         },
         {
             "id": 9,
@@ -97,7 +97,7 @@
             "photo": "https://nerdhits.com.br/wp-content/uploads/2021/11/Demon-Slayer-Giyu-Angry-Snowing.jpg",
             "power": "Water",
             "theme": "water",
-            "emoji": "&#127754;"
+            "emoji": "💧"
         },
         {
             "id": 10,
@@ -108,7 +108,7 @@
             "photo": "https://i.pinimg.com/originals/60/ce/6b/60ce6b4120bb393893c3040883b9c26e.jpg",
             "power": "Water / Sun",
             "theme": "sun",
-            "emoji": "&#127774;"
+            "emoji": "🌞"
         },
         {
             "id": 11,
@@ -119,7 +119,7 @@
             "photo": "http://pm1.narvii.com/7279/d235bf5f96231f927de14344c3ea70c9931678d6r1-828-804v2_uhq.jpg",
             "power": "Lighting",
             "theme": "lighting",
-            "emoji": "&#9889;"
+            "emoji": "⚡"
         },
         {
             "id": 12,
@@ -130,7 +130,7 @@
             "photo": "https://sm.ign.com/t/ign_br/screenshot/default/kimetsu-no-yaiba-inosuke-cosplay_ra8m.1200.jpg",
             "power": "Beast",
             "theme": "beast",
-            "emoji": "&#128023;"
+            "emoji": "🐗"
         },
         {
             "id": 13,
@@ -141,7 +141,7 @@
             "photo": "https://i0.wp.com/nouse.com.br/wp-content/uploads/2021/12/yoriichi-mais-forte-demon-slayer-1200x720-1.jpg",
             "power": "Moon",
             "theme": "moon",
-            "emoji": "&#127769;"
+            "emoji": "🌙"
         }
     ]
 }
