@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { Button } from "../components/Button";
 import { Icon } from "../components/Icon";
@@ -26,11 +27,17 @@ const IntroWrapper = styled.div`
 `
 
 export const Intro = () => {
+  const navigate = useNavigate();
+
+  const navigateToForm = () =>{
+    navigate("/new");
+  };
+
   return (
     <IntroWrapper>
       <img className="logo" src="src/assets/images/logo.png" alt="Logo" />
       <p>This application was made for you to create and manage your own demon slayers.</p>
-      <Button>
+      <Button onClick={navigateToForm}>
         <Icon  />
         Create
       </Button>

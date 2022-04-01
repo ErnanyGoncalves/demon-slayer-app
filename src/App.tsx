@@ -1,7 +1,10 @@
 import React from 'react';
-import { Core } from './screens/Core';
-import { Intro } from './screens/Intro';
-import {GlobalStyle} from './style';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { Template } from './layout/Template';
+import { FormDS } from './screens/FormDS';
+import { InfoDS } from './screens/InfoDS';
+import { ListDS } from './screens/ListDS';
+import { GlobalStyle } from './style';
 
 function App() {
 
@@ -9,10 +12,19 @@ function App() {
     <React.Fragment>
       <GlobalStyle />
       <div className='container'>
-        <Intro />
-        <Core />
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Template />}>
+              <Route index element={<ListDS />} />
+              <Route path="/:id/details" element={<InfoDS />} />
+              <Route path="/new" element={<FormDS />} />
+              <Route path="/:id/edit" element={<FormDS />} />
+              <Route path="*" element={<ListDS />} />
+            </Route>
+          </Routes>
+        </BrowserRouter>
       </div>
-      
+
     </React.Fragment>
   )
 }
