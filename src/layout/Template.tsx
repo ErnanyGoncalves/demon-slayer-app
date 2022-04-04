@@ -1,4 +1,4 @@
-import { BrowserRouter, Outlet, Route, Routes } from "react-router-dom"
+import { Outlet } from "react-router-dom"
 import { Core } from "./Core"
 import { Intro } from "./Intro"
 

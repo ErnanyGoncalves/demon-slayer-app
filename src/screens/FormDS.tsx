@@ -1,6 +1,7 @@
+import { WarningCard } from "../components/Modal/WarningCard"
 
 export const FormDS = () => {
   return (
-    <div>Form</div>
+    <WarningCard title="Confirmation" text="Are you sure you want to do that?" />
   )
 }

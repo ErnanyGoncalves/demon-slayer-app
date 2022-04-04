@@ -1,7 +1,6 @@
-
 import axios from 'axios'
 import { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import styled from 'styled-components'
 import { Button } from '../components/Button'
 import { Icon } from '../components/Icon'
@@ -48,19 +47,23 @@ export const InfoDS = () => {
         "emoji": ""
     });
 
-        //Estados: idle, loading, error, done
+    //Estados: idle, loading, error, done
     const [isLoaded, setIsLoaded] = useState(false);
 
     const params = useParams();
+    const navigate = useNavigate();
+    const navigateToHome = () => navigate("/");
+    const navigateToForm = (id: any) => navigate(`/${id}}/edit`);
 
     useEffect(() => {
+        // axios.get(`http://localhost:3000/demon-slayers/999`)
         axios.get(`http://localhost:3000/demon-slayers/${params.id}`)
             .then(({ data }: any) => {
                 setIsLoaded(true);
                 return setDSInfo(data)
             })
-            .catch((err: any) => console.log(err));        
-    }, [params]);
+            .catch((err: any) => navigate('/')); // Quando não encontra um id
+    }, [params.id]);
 
 
     return (
@@ -68,7 +71,7 @@ export const InfoDS = () => {
             <InfoShort name={dsInfo.name} age={dsInfo.age} power={dsInfo.power} emoji={dsInfo.emoji} photo={dsInfo.photo} gender={dsInfo.gender} />
             {dsInfo.backstory && <InfoBackstory backstory={dsInfo.backstory} />}
             <div className='infoButtons'>
-                <Button>
+                <Button onClick={()=>navigateToForm(params.id)}>
                     <Icon name='edit' />
                     Edit
                 </Button>
@@ -76,7 +79,7 @@ export const InfoDS = () => {
                     <Icon name='trash' />
                     Delete
                 </Button>
-                <Button>
+                <Button onClick={navigateToHome}>
                     <Icon name='back' />
                     Back
                 </Button>

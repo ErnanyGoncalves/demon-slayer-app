@@ -14,7 +14,8 @@ interface Props {
 
 const ModalCardWrapper = styled.div`
     box-sizing:border-box;
-    display:inline-flex;
+    display:flex;
+    justify-content:space-between;
     border: 2px solid var(--black); 
     padding: 30px 67px;
     background-color: var(--white);

@@ -17,7 +17,7 @@ export const DSCardList = () => {
 
     const [dsList, setDSList] = useState([]);
     useEffect(() => {
-        axios.get("http://localhost:3000/demon-slayers?_limit=6")
+        axios.get("http://localhost:3000/demon-slayers")
             .then(({ data }: any) => setDSList(data))
             .catch((err: any) => console.log(err));
     }, []);

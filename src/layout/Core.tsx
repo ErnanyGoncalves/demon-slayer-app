@@ -7,6 +7,4 @@ export const Core = styled.div`
     width: 778px;
     background-color: var(--white-50);
     display:flex;
-    /* justify-content: center; */
-
 `
