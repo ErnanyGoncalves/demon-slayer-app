@@ -6,19 +6,20 @@ import { Button } from '../components/Button'
 import { Icon } from '../components/Icon'
 import { InfoBackstory } from '../components/InfoBackstory'
 import { InfoShort } from '../components/InfoShort'
+import { ButtonsBar } from '../layout/ButtonsBar'
 
 
 const InfoWrapper = styled.div`
     margin: 60px 0px 58px 0;
-    position: relative;
+    /* display:flex;
+    flex-direction:column;
+    justify-content:space-between; */
+    /* position: relative; */
     width:100%;
-    .infoButtons{
-        display:flex;
-        justify-content:center;
-        gap:90px;
-        margin: 0 86px;        
-        position: absolute;
-        bottom: 0;
+    .blank{
+        height: 458px;
+        margin-top: 48px;
+        margin-bottom: 48px;
     }
     
 `
@@ -69,8 +70,8 @@ export const InfoDS = () => {
     return (
         isLoaded && dsInfo && <InfoWrapper>
             <InfoShort name={dsInfo.name} age={dsInfo.age} power={dsInfo.power} emoji={dsInfo.emoji} photo={dsInfo.photo} gender={dsInfo.gender} />
-            {dsInfo.backstory && <InfoBackstory backstory={dsInfo.backstory} />}
-            <div className='infoButtons'>
+            {dsInfo.backstory ? <InfoBackstory backstory={dsInfo.backstory} /> : <div className='blank' />}            
+            <ButtonsBar>
                 <Button onClick={()=>navigateToForm(params.id)}>
                     <Icon name='edit' />
                     Edit
@@ -83,7 +84,7 @@ export const InfoDS = () => {
                     <Icon name='back' />
                     Back
                 </Button>
-            </div>
+            </ButtonsBar>
         </InfoWrapper>
     )
 }

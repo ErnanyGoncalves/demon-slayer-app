@@ -38,12 +38,5 @@ export const ModalCardWrapper = styled.div`
                 justify-content: center;
             }
         }
-
-        .infoButtons{
-            display:flex;
-            justify-content:center;
-            gap:90px;
-            margin: 0 86px;                
-        } 
     }
 `

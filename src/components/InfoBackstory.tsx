@@ -5,6 +5,8 @@ interface Props {
 }
 
 const InfoBackstoryWrapper = styled.div`
+    height: 458px;
+    margin-bottom: 48px;
     .hr{
         width: 68px;
         height: 2px;

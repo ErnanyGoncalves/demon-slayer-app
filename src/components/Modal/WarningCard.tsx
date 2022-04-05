@@ -1,5 +1,5 @@
-import { Fragment } from 'react';
 import styled from 'styled-components'
+import { ButtonsBar } from '../../layout/ButtonsBar';
 import { Button } from '../Button';
 import { Icon } from '../Icon'
 import { ModalCardWrapper } from './ModalCardWrapper'
@@ -27,7 +27,7 @@ export const WarningCard = ({ title, text }: Props) => {
                     <h2>{title}</h2>
                 </div>
                 <p>{text}</p>
-                <div className='infoButtons'>
+                <ButtonsBar>
                     <Button>
                         <Icon name='confirm' />
                         Yes
@@ -36,7 +36,7 @@ export const WarningCard = ({ title, text }: Props) => {
                         <Icon name='cancel' />
                         No
                     </Button>
-                </div>
+                </ButtonsBar>
             </WarningCardWrapper>
         </ModalCardWrapper>
     )
