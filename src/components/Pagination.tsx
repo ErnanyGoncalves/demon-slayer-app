@@ -1,4 +1,10 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components'
+
+interface Pagination {
+    currentPage: number;
+    totalPages: number;
+}
 
 const PaginationWrapper = styled.div`
     height: 40px;
@@ -30,6 +36,13 @@ const PaginationWrapper = styled.div`
         text-decoration: none;
         width:40px;
         height: 40px;
+        color: var(--black);
+
+        &.link-disabled, &.link-disabled:hover, &.link-disabled:focus{
+            cursor: not-allowed;
+            pointer-events: none;
+            color: var(--black-30);
+        }
         
         :hover,:focus{
             color: var(--red);
@@ -42,14 +55,14 @@ const PaginationWrapper = styled.div`
     }
 `
 
-export const Pagination = () => {
+export const Pagination = ({ currentPage, totalPages }: Pagination) => {
     return (
         <PaginationWrapper>
-            <a href="#">{'<<'}</a>
-            <a href="#">{'<'}</a>
-            <span>01 / 20</span>
-            <a href="#">{'>'}</a>
-            <a href="#">{'>>'}</a>
+            <Link className={currentPage === 1 ? 'link-disabled' : ''} to="/?page=1">{'<<'}</Link>
+            <Link className={currentPage === 1 ? 'link-disabled' : ''} to={`/?page=${currentPage - 1 < 1 ? 1 : currentPage - 1}`}>{'<'}</Link>
+            <span>{currentPage >= 10 ? currentPage : `0${currentPage}`} / {totalPages >= 10 ? totalPages : `0${totalPages}`}</span>
+            <Link className={currentPage === totalPages ? 'link-disabled' : ''} to={`/?page=${currentPage + 1 > totalPages ? totalPages : currentPage + 1}`}>{'>'}</Link>
+            <Link className={currentPage === totalPages ? 'link-disabled' : ''} to={`/?page=${totalPages}`}>{'>>'}</Link>
         </PaginationWrapper>
     )
 }

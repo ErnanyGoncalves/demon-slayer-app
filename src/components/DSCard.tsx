@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components'
 
 const DSCardWrapper = styled(Link)`
-    /* width: 379px; */
     height: 180px;
     box-sizing: border-box;
     padding: 0 24px;
@@ -24,7 +23,10 @@ const DSCardWrapper = styled(Link)`
     }
     :hover,:focus{
         transform: scale(1.01);
-        transition: transform 0.1s linear;
+        transition: transform 0.1s linear;        
+    }
+    :focus{
+        outline: none;
     }
 
 

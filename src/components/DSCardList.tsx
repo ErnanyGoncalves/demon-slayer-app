@@ -1,8 +1,18 @@
-import axios from 'axios';
-import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { DSCard } from './DSCard';
 
+interface Card {
+    dsList: CardData[];
+}
+
+interface CardData {
+
+    id: number;
+    name: string;
+    photo: string;
+    theme: string;
+    emoji: string;
+}
 
 const CardListWrapper = styled.div`    
     display: grid;
@@ -13,15 +23,7 @@ const CardListWrapper = styled.div`
     gap: 20px;
 `;
 
-export const DSCardList = () => {
-
-    const [dsList, setDSList] = useState([]);
-    useEffect(() => {
-        axios.get("http://localhost:3000/demon-slayers")
-            .then(({ data }: any) => setDSList(data))
-            .catch((err: any) => console.log(err));
-    }, []);
-
+export const DSCardList = ({ dsList }: Card) => {
 
     return (
         dsList && <CardListWrapper>

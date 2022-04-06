@@ -1,5 +1,5 @@
-import { DangerCard } from "../components/Modal/DangerCard";
-import { WarningCard } from "../components/Modal/WarningCard"
+import { DangerCard } from "../components/modal/DangerCard";
+import { WarningCard } from "../components/modal/WarningCard"
 
 export const FormDS = () => {
 

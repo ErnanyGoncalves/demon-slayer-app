@@ -11,10 +11,6 @@ import { ButtonsBar } from '../layout/ButtonsBar'
 
 const InfoWrapper = styled.div`
     margin: 60px 0px 58px 0;
-    /* display:flex;
-    flex-direction:column;
-    justify-content:space-between; */
-    /* position: relative; */
     width:100%;
     .blank{
         height: 458px;
