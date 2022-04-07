@@ -2,12 +2,12 @@ import axios from 'axios'
 import { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import styled from 'styled-components'
-import { Button } from '../components/Button'
-import { Icon } from '../components/Icon'
-import { InfoBackstory } from '../components/InfoBackstory'
-import { InfoShort } from '../components/InfoShort'
+import { Button } from '../components/common/Button'
+import { Icon } from '../components/common/Icon'
+import { InfoBackstory } from '../components/info/InfoBackstory'
+import { InfoShort } from '../components/info/InfoShort'
 import { ButtonsBar } from '../layout/ButtonsBar'
-
+import { Info } from '../types/Info'
 
 const InfoWrapper = styled.div`
     margin: 60px 0px 58px 0;
@@ -19,19 +19,6 @@ const InfoWrapper = styled.div`
     }
     
 `
-
-interface Info {
-
-    id: number;
-    name: string;
-    age: number;
-    gender: string;
-    backstory?: string;
-    photo: string;
-    power: string;
-    emoji: string;
-
-}
 
 export const InfoDS = () => {
     const [dsInfo, setDSInfo] = useState<Info>({
@@ -66,9 +53,9 @@ export const InfoDS = () => {
     return (
         isLoaded && dsInfo && <InfoWrapper>
             <InfoShort name={dsInfo.name} age={dsInfo.age} power={dsInfo.power} emoji={dsInfo.emoji} photo={dsInfo.photo} gender={dsInfo.gender} />
-            {dsInfo.backstory ? <InfoBackstory backstory={dsInfo.backstory} /> : <div className='blank' />}            
+            {dsInfo.backstory ? <InfoBackstory backstory={dsInfo.backstory} /> : <div className='blank' />}
             <ButtonsBar>
-                <Button onClick={()=>navigateToForm(params.id)}>
+                <Button onClick={() => navigateToForm(params.id)}>
                     <Icon name='edit' />
                     Edit
                 </Button>

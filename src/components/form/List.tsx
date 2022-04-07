@@ -1,12 +1,8 @@
-
 import styled from 'styled-components'
+import { ListProps } from '../../types/List'
 
-interface Props {
-    width: string;
-    options: string[];
-}
 
-const ListWrapper = styled.select<Omit<Props, "options">>`             
+const ListWrapper = styled.select<Omit<ListProps, "options">>`             
 
         border: 2px solid var(--black); 
         box-sizing:border-box;        
@@ -27,7 +23,7 @@ const ListWrapper = styled.select<Omit<Props, "options">>`
 
 `
 
-export const List = ({ width,options }: Props) => {
+export const List = ({ width, options }: ListProps) => {
     return (
         <ListWrapper width={width}>
             <option value="---">----------------</option>

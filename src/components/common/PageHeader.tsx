@@ -1,9 +1,6 @@
 import styled from 'styled-components'
+import { PageHeaderProps } from '../../types/PageHeader';
 
-interface Props {
-    highlight: string;
-    title: string;
-}
 
 const PageHeaderWrapper = styled.header`
     h1{
@@ -23,7 +20,7 @@ const PageHeaderWrapper = styled.header`
     
 `;
 
-export const PageHeader = ({ highlight, title }: Props) => {
+export const PageHeader = ({ highlight, title }: PageHeaderProps) => {
     return (
         <PageHeaderWrapper>
             <h1><span>{highlight && highlight+" "}</span>{title}</h1>

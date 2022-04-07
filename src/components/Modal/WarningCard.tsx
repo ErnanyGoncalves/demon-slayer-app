@@ -1,7 +1,8 @@
 import styled from 'styled-components'
 import { ButtonsBar } from '../../layout/ButtonsBar';
-import { Button } from '../Button';
-import { Icon } from '../Icon'
+import { WarningCardProps } from '../../types/WarningCard';
+import { Button } from '../common/Button';
+import { Icon } from '../common/Icon'
 import { ModalCardWrapper } from './ModalCardWrapper'
 
 
@@ -13,12 +14,7 @@ const WarningCardWrapper = styled.div`
     }   
 `
 
-interface Props {
-    title: string;
-    text: string;
-}
-
-export const WarningCard = ({ title, text }: Props) => {
+export const WarningCard = ({ title, text }: WarningCardProps) => {
     return (
         <ModalCardWrapper>
             <WarningCardWrapper className='modalStyle'>

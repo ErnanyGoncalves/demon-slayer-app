@@ -1,7 +1,8 @@
 import styled from 'styled-components'
 import { ButtonsBar } from '../../layout/ButtonsBar';
-import { Button } from '../Button';
-import { Icon } from '../Icon'
+import { DangerCardProps } from '../../types/DangerCard';
+import { Button } from '../common/Button';
+import { Icon } from '../common/Icon'
 import { ModalCardWrapper } from './ModalCardWrapper'
 
 
@@ -24,13 +25,7 @@ const DangerCardWrapper = styled.div`
     }
 `
 
-interface Props {
-    title: string;
-    text: string;
-    fields: string[];
-}
-
-export const DangerCard = ({ title, text, fields }: Props) => {
+export const DangerCard = ({ title, text, fields }: DangerCardProps) => {
     return (
         <ModalCardWrapper>
             <DangerCardWrapper className='modalStyle'>

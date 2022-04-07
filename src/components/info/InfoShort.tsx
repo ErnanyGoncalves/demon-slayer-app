@@ -1,13 +1,5 @@
 import styled from "styled-components"
-
-interface Props {
-    name: string;
-    age: number;
-    power: string;
-    emoji: string;
-    photo: string;
-    gender: string;
-}
+import { InfoShortProps } from "../../types/InfoShort"
 
 const InfoShortWrapper = styled.div`
     display: flex;
@@ -37,7 +29,7 @@ const InfoShortWrapper = styled.div`
     
 `
 
-export const InfoShort = ({name,age,power,emoji,photo,gender}: Props) => {
+export const InfoShort = ({name,age,power,emoji,photo,gender}: InfoShortProps) => {
 
     return (
         <InfoShortWrapper>

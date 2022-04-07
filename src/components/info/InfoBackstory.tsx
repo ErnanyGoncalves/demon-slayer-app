@@ -1,8 +1,6 @@
 import styled from "styled-components"
+import { InfoBackstoryProps } from "../../types/InfoBackstory"
 
-interface Props {
-    backstory?: string;
-}
 
 const InfoBackstoryWrapper = styled.div`
     height: 458px;
@@ -31,7 +29,7 @@ const InfoBackstoryWrapper = styled.div`
 
 `
 
-export const InfoBackstory = ({backstory}: Props) => {
+export const InfoBackstory = ({backstory}: InfoBackstoryProps) => {
     return (
         <InfoBackstoryWrapper>
             <div className="hr" />

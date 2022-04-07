@@ -1,15 +1,8 @@
 import styled from "styled-components";
-
-interface Props{
-    width: string;
-    value?: string;
-    onFocus?: any;
-    onBlur?: any;
-    onKeyDown?: any;
-}
+import { InputProps } from "../../types/Input";
 
 /** @TODO Achar uma forma de colocar icone no input (não obrigatório)  */
-export const Input = styled.input<Props>`       
+export const Input = styled.input<InputProps>`       
         border: 2px solid var(--black); 
         box-sizing:border-box;        
         padding: 18px 14px;

@@ -2,22 +2,10 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import styled from "styled-components"
-import { DSCardList } from "../components/DSCardList"
-import { Input } from "../components/Input";
-import { Pagination } from "../components/Pagination"
+import { DSCardList } from "../components/list/DSCardList"
+import { Input } from "../components/form/Input";
+import { Pagination } from "../components/list/Pagination"
 
-interface Card{
-  dsList: CardData[];
-}
-
-interface CardData {
-
-  id: number;
-  name: string;
-  photo: string;
-  theme: string;
-  emoji: string;
-}
 
 const ListDSWrapper = styled.div`
   display: flex;

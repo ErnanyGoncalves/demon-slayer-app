@@ -1,10 +1,6 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components'
-
-interface Pagination {
-    currentPage: number;
-    totalPages: number;
-}
+import { PaginationProps } from '../../types/Pagination';
 
 const PaginationWrapper = styled.div`
     height: 40px;
@@ -55,7 +51,7 @@ const PaginationWrapper = styled.div`
     }
 `
 
-export const Pagination = ({ currentPage, totalPages }: Pagination) => {
+export const Pagination = ({ currentPage, totalPages }: PaginationProps) => {
     return (
         <PaginationWrapper>
             <Link className={currentPage === 1 ? 'link-disabled' : ''} to="/?page=1">{'<<'}</Link>

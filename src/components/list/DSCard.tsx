@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components'
+import { CardProps } from '../../types/Card';
 
 const DSCardWrapper = styled(Link)`
     height: 180px;
@@ -84,15 +85,8 @@ const DSCardWrapper = styled(Link)`
     }
 `
 
-interface Props {
-    id: number;
-    name: string;
-    theme: string;
-    photo: string;
-    emoji: string;
-}
 
-export const DSCard = ({id,name,theme,photo,emoji} : Props) => {
+export const DSCard = ({id,name,theme,photo,emoji} : CardProps) => {
   return (
     <DSCardWrapper className={theme} to={`/${id}/details`}>
         <img className='cardPicture' src={photo} alt={name} />

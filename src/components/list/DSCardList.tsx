@@ -1,18 +1,6 @@
 import styled from 'styled-components';
+import { Card } from '../../types/CardList';
 import { DSCard } from './DSCard';
-
-interface Card {
-    dsList: CardData[];
-}
-
-interface CardData {
-
-    id: number;
-    name: string;
-    photo: string;
-    theme: string;
-    emoji: string;
-}
 
 const CardListWrapper = styled.div`    
     display: grid;
