@@ -10,7 +10,7 @@ export const Input = styled.input<InputProps>`
         color:var(--black);
         background-color: var(--white);
         font-family: "Open Sans", sans-serif;
-        width: ${props => props.width};
+        width: 100%;
         height: 64px;
         margin:2px;
 

@@ -5,7 +5,7 @@ import { Input } from './Input';
 
 const EmojiPickerComponentWrapper = styled.div`
   height:64px;
-  width: 157px;
+  width: 100%;
   position: relative;
 `;
 
@@ -28,7 +28,7 @@ const EmojiPickerWrapper = styled.div`
 
 export const EmojiPicker = () => {
   const [chosenEmoji, setChosenEmoji] = useState('');
-  const [isOnFocus, setIsOnFocus] = useState(true);
+  const [isOnFocus, setIsOnFocus] = useState(false);
 
   const onEmojiClick = (event, emojiObject) => {
     setChosenEmoji(emojiObject);

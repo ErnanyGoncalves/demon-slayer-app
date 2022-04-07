@@ -11,8 +11,8 @@ export const Textarea = styled.textarea`
         font-weight: 400;
         font-family: "Open Sans", sans-serif;
         margin:2px;
-        width:778px;
-        height:192px;
+        width:100%;
+        height:211px;
         
         :focus{
             outline: 2px solid var(--red);

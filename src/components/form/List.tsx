@@ -11,7 +11,7 @@ const ListWrapper = styled.select<Omit<ListProps, "options">>`
         cursor: pointer;
         background-color: var(--white);
         font-family: "Open Sans", sans-serif;
-        width: ${props => props.width};
+        width: 100%;
         height: 64px;
         margin: 2px;
        
@@ -23,9 +23,9 @@ const ListWrapper = styled.select<Omit<ListProps, "options">>`
 
 `
 
-export const List = ({ width, options }: ListProps) => {
+export const List = ({options}: ListProps) => {
     return (
-        <ListWrapper width={width}>
+        <ListWrapper required>
             <option value="---">----------------</option>
             {options.map((option) => <option key={option} value={option}>{option.charAt(0).toUpperCase() + option.slice(1)}</option>)}
         </ListWrapper>
