@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import { Info } from "../../types/Info"
 import { EmojiPicker } from "./EmojiPicker"
 import { Input } from "./Input"
 import { List } from "./List"
@@ -48,45 +49,45 @@ const FormGridWrapper = styled.div`
     }
 `
 
-export const FormGrid = () => {
+export const FormGrid = ({info}: Info) => {
     const genders = ["male", "female", "other"];
     const themes = ["stone", "wind", "serpent", "love", "fire", "mist", "insect", "sound", "water", "sun", "lighting", "beast", "moon"];
-
-
-
+    
     return (
         <FormGridWrapper>
             <div className="a">
                 <label htmlFor="name">Name*</label>
-                <Input type="text" name="name" id="name" required />
+                <Input value={info && info.name} type="text" name="name" id="name" required />
             </div>
             <div className="b">
                 <label htmlFor="age">Age*</label>
-                <Input type="number" name="age" id="age" required />
+                <Input value={info && info.age} type="number" name="age" id="age" required />
             </div>
             <div className="c">
                 <label htmlFor="gender">Gender*</label>
-                <List options={genders} />
+                <List options={genders} selected={info && info.gender} />
             </div>
             <div className="d">
                 <label htmlFor="power">Power</label>
-                <Input type="text" name="power" id="power" />
+                <Input value={info && info.power} type="text" name="power" id="power" />
             </div>
             <div className="e">
                 <label htmlFor="emoji">Emoji</label>
-                <EmojiPicker />
+                <EmojiPicker emoji={info && info.emoji} />
             </div>
             <div className="f">
                 <label htmlFor="theme">Theme*</label>
-                <List options={themes} />
+                <List options={themes} selected={info && info.theme} />
             </div>
             <div className="g">
-                <label htmlFor="picture">Picture*</label>
-                <Input type="url" name="picture" id="picture" required />
+                <label htmlFor="photo">Photo*</label>
+                <Input value={info && info.photo} type="url" name="photo" id="photo" required />
             </div>
             <div className="h">
                 <label htmlFor="backstory">Backstory</label>
-                <Textarea />
+                <Textarea>
+                    {info && info.backstory}
+                </Textarea>
             </div>
         </FormGridWrapper>
     )

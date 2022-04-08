@@ -3,8 +3,9 @@ export interface Info {
     name: string;
     age: number;
     gender: string;
+    theme?: string;
     backstory?: string;
     photo: string;
     power: string;
-    emoji: string;
+    emoji?: string;
 }

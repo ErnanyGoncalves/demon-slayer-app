@@ -23,11 +23,11 @@ const ListWrapper = styled.select<Omit<ListProps, "options">>`
 
 `
 
-export const List = ({options}: ListProps) => {
+export const List = ({ options, selected }: ListProps) => {
     return (
         <ListWrapper required>
             <option value="---">----------------</option>
-            {options.map((option) => <option key={option} value={option}>{option.charAt(0).toUpperCase() + option.slice(1)}</option>)}
+            {options.map((option) => <option selected={option == selected?.toLowerCase()} key={option} value={option}>{option.charAt(0).toUpperCase() + option.slice(1)}</option>)}
         </ListWrapper>
     )
 }

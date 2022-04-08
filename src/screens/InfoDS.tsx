@@ -44,7 +44,7 @@ export const InfoDS = () => {
         axios.get(`http://localhost:3000/demon-slayers/${params.id}`)
             .then(({ data }: any) => {
                 setIsLoaded(true);
-                return setDSInfo(data)
+                setDSInfo(data)
             })
             .catch((err: any) => navigate('/')); // Quando não encontra um id
     }, [params.id]);
