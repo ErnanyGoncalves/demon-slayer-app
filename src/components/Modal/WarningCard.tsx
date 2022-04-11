@@ -3,7 +3,6 @@ import { ButtonsBar } from '../../layout/ButtonsBar';
 import { WarningCardProps } from '../../types/WarningCard';
 import { Button } from '../common/Button';
 import { Icon } from '../common/Icon'
-import { ModalCardWrapper } from './ModalCardWrapper'
 
 
 const WarningCardWrapper = styled.div`
@@ -16,24 +15,22 @@ const WarningCardWrapper = styled.div`
 
 export const WarningCard = ({ title, text }: WarningCardProps) => {
     return (
-        <ModalCardWrapper>
-            <WarningCardWrapper className='modalStyle'>
-                <div className='modalHeader'>
-                    <Icon name="question" size="109px" />
-                    <h2>{title}</h2>
-                </div>
-                <p>{text}</p>
-                <ButtonsBar>
-                    <Button>
-                        <Icon name='confirm' />
-                        Yes
-                    </Button>
-                    <Button>
-                        <Icon name='cancel' />
-                        No
-                    </Button>
-                </ButtonsBar>
-            </WarningCardWrapper>
-        </ModalCardWrapper>
+        <WarningCardWrapper className='modalStyle'>
+            <div className='modalHeader'>
+                <Icon name="question" size="109px" />
+                <h2>{title}</h2>
+            </div>
+            <p>{text}</p>
+            <ButtonsBar>
+                <Button>
+                    <Icon name='confirm' />
+                    Yes
+                </Button>
+                <Button>
+                    <Icon name='cancel' />
+                    No
+                </Button>
+            </ButtonsBar>
+        </WarningCardWrapper>
     )
 }

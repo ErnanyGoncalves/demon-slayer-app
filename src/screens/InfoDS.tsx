@@ -6,6 +6,7 @@ import { Button } from '../components/common/Button'
 import { Icon } from '../components/common/Icon'
 import { InfoBackstory } from '../components/info/InfoBackstory'
 import { InfoShort } from '../components/info/InfoShort'
+import { Modal } from '../components/modal/Modal'
 import { ButtonsBar } from '../layout/ButtonsBar'
 import { Info } from '../types/Info'
 
@@ -68,6 +69,10 @@ export const InfoDS = () => {
                     Back
                 </Button>
             </ButtonsBar>
+
+            {/* <Modal type="warning"  modalContent={{title:"Confirmation", text:`Are you sure you want to delete ${dsInfo.name}?`}} /> */}
+            <Modal type="danger"  modalContent={{title:"Something is wrong", text:`You forgot to fill the following required fields:`, fields: ["Nome", "Idade", "Sexo"]}} />
+
         </InfoWrapper>
     )
 }

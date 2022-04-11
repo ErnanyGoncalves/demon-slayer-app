@@ -3,7 +3,6 @@ import { ButtonsBar } from '../../layout/ButtonsBar';
 import { DangerCardProps } from '../../types/DangerCard';
 import { Button } from '../common/Button';
 import { Icon } from '../common/Icon'
-import { ModalCardWrapper } from './ModalCardWrapper'
 
 
 const DangerCardWrapper = styled.div`
@@ -27,25 +26,23 @@ const DangerCardWrapper = styled.div`
 
 export const DangerCard = ({ title, text, fields }: DangerCardProps) => {
     return (
-        <ModalCardWrapper>
-            <DangerCardWrapper className='modalStyle'>
-                <div className='modalHeader'>
-                    <Icon name="cancel" size="109px" />
-                    <h2>{title}</h2>
-                </div>
-                <div className='missingFields'>
-                    <p>{text}</p>
-                    <ul>
-                        {fields.map((field) => <li>{field}</li>)}
-                    </ul>
-                </div>
-                <ButtonsBar>
-                    <Button>
-                        <Icon name='back' />
-                        Back
-                    </Button>
-                </ButtonsBar>
-            </DangerCardWrapper>
-        </ModalCardWrapper>
+        <DangerCardWrapper className='modalStyle'>
+            <div className='modalHeader'>
+                <Icon name="cancel" size="109px" />
+                <h2>{title}</h2>
+            </div>
+            <div className='missingFields'>
+                <p>{text}</p>
+                <ul>
+                    {fields.map((field) => <li>{field}</li>)}
+                </ul>
+            </div>
+            <ButtonsBar>
+                <Button>
+                    <Icon name='back' />
+                    Back
+                </Button>
+            </ButtonsBar>
+        </DangerCardWrapper>
     )
 }

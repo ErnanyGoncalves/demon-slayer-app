@@ -55,9 +55,9 @@ export const FormDS = () => {
   }, [location.pathname, params.id]);
 
   return (
-    <form onSubmit={handleSubmit}>
-      <FormDSWrapper>
-        {editMode ? <PageHeader highlight="Edit" title={dsInfo.name + ":"} /> : <PageHeader highlight="New" title="Demon Slayer:" />}
+    <FormDSWrapper>
+      {editMode ? <PageHeader highlight="Edit" title={dsInfo.name + ":"} /> : <PageHeader highlight="New" title="Demon Slayer:" />}
+      <form onSubmit={handleSubmit}>
         <FormGrid info={dsInfo} />
         <ButtonsBar>
           <Button type="submit">
@@ -69,7 +69,7 @@ export const FormDS = () => {
             Cancel
           </Button>
         </ButtonsBar>
-      </FormDSWrapper>
-    </form>
+      </form>
+    </FormDSWrapper>
   )
 }

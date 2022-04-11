@@ -1,7 +1,12 @@
 import styled from "styled-components";
 
 export const ModalCardWrapper = styled.div`
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     background-color: var(--white);
+    width: 690px;
     height: 422px;
     .modalStyle{
         display: flex;
@@ -11,7 +16,7 @@ export const ModalCardWrapper = styled.div`
         border: 2px solid var(--black); 
         padding: 30px 67px;
         box-shadow: 0 4px 4px 2px var(--black-30);
-        width: 690px;
+        
         height: 100%;
 
         p{
