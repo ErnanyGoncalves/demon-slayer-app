@@ -77,9 +77,6 @@ export const InfoDS = () => {
             {
                 isOpen &&
                 <Modal type="warning" modalContent={{ title: "Confirmation", text: `Are you sure you want to delete ${dsInfo.name}?`, setIsOpen: setIsOpen, actionFunction: deleteCharacter(params.id) }} />
-
-                /* Modal de danger vai pra FORM!!! */
-                // <Modal type="danger" modalContent={{ title: "Something is wrong", text: `You forgot to fill the following required fields:`, fields: ["Nome", "Idade", "Sexo"], setIsOpen: setIsOpen }} />
             }
         </InfoWrapper>
     )
