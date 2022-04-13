@@ -24,7 +24,7 @@ const DangerCardWrapper = styled.div`
     }
 `
 
-export const DangerCard = ({ title, text, fields }: DangerCardProps) => {
+export const DangerCard = ({ title, text, fields, setIsOpen }: DangerCardProps) => {
     return (
         <DangerCardWrapper className='modalStyle'>
             <div className='modalHeader'>
@@ -38,7 +38,7 @@ export const DangerCard = ({ title, text, fields }: DangerCardProps) => {
                 </ul>
             </div>
             <ButtonsBar>
-                <Button>
+                <Button onClick={() => setIsOpen(false)}>
                     <Icon name='back' />
                     Back
                 </Button>

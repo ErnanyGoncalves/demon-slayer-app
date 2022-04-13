@@ -13,7 +13,7 @@ const WarningCardWrapper = styled.div`
     }   
 `
 
-export const WarningCard = ({ title, text }: WarningCardProps) => {
+export const WarningCard = ({ title, text, setIsOpen, actionFunction }: WarningCardProps) => {
     return (
         <WarningCardWrapper className='modalStyle'>
             <div className='modalHeader'>
@@ -22,11 +22,11 @@ export const WarningCard = ({ title, text }: WarningCardProps) => {
             </div>
             <p>{text}</p>
             <ButtonsBar>
-                <Button>
+                <Button onClick={actionFunction}>
                     <Icon name='confirm' />
                     Yes
                 </Button>
-                <Button>
+                <Button onClick={() => setIsOpen(false)}>
                     <Icon name='cancel' />
                     No
                 </Button>

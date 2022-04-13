@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { is } from 'immer/dist/internal'
 import { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import styled from 'styled-components'
@@ -34,7 +35,7 @@ export const InfoDS = () => {
 
     //Estados: idle, loading, error, done
     const [isLoaded, setIsLoaded] = useState(false);
-
+    const [isOpen, setIsOpen] = useState(false);
     const params = useParams();
     const navigate = useNavigate();
     const navigateToHome = () => navigate("/");
@@ -50,6 +51,12 @@ export const InfoDS = () => {
             .catch((err: any) => navigate('/')); // Quando não encontra um id
     }, [params.id]);
 
+    const deleteCharacter = (id: any) => {
+        axios.delete(`http://localhost:3000/demon-slayers/${id}`)
+            .then(() => navigate('/'))
+            .catch((err: any) => console.log(err));
+    }
+
 
     return (
         isLoaded && dsInfo && <InfoWrapper>
@@ -60,7 +67,7 @@ export const InfoDS = () => {
                     <Icon name='edit' />
                     Edit
                 </Button>
-                <Button>
+                <Button onClick={() => setIsOpen(true)}>
                     <Icon name='trash' />
                     Delete
                 </Button>
@@ -69,10 +76,13 @@ export const InfoDS = () => {
                     Back
                 </Button>
             </ButtonsBar>
+            {
+                isOpen &&
+                <Modal type="warning" modalContent={{ title: "Confirmation", text: `Are you sure you want to delete ${dsInfo.name}?`, setIsOpen: setIsOpen, actionFunction: deleteCharacter(params.id) }} />
 
-            {/* <Modal type="warning"  modalContent={{title:"Confirmation", text:`Are you sure you want to delete ${dsInfo.name}?`}} /> */}
-            <Modal type="danger"  modalContent={{title:"Something is wrong", text:`You forgot to fill the following required fields:`, fields: ["Nome", "Idade", "Sexo"]}} />
-
+                /* Modal de danger vai pra FORM!!! */
+                // <Modal type="danger" modalContent={{ title: "Something is wrong", text: `You forgot to fill the following required fields:`, fields: ["Nome", "Idade", "Sexo"], setIsOpen: setIsOpen }} />
+            }
         </InfoWrapper>
     )
 }

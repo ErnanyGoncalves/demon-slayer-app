@@ -21,8 +21,8 @@ export const Modal = ({type,modalContent} : ModalProps) => {
   return (
     <ModalWrapper>
             <ModalCardWrapper>
-                    {type === "warning" && <WarningCard title={modalContent.title} text={modalContent.text} />}
-                    {type === "danger" && <DangerCard title={modalContent.title} text={modalContent.text} fields={modalContent.fields} />}
+                    {type === "warning" && <WarningCard title={modalContent.title} text={modalContent.text} setIsOpen={modalContent.setIsOpen} actionFunction={modalContent.actionFunction}  />}
+                    {type === "danger" && <DangerCard title={modalContent.title} text={modalContent.text} fields={modalContent.fields} setIsOpen={modalContent.setIsOpen} />}
             </ModalCardWrapper>
     </ModalWrapper>
   )
