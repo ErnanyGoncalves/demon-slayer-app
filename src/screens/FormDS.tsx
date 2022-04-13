@@ -4,8 +4,7 @@ import { useLocation, useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components";
 import { Button } from "../components/common/Button";
 import { Icon } from "../components/common/Icon";
-import { FormGrid } from "../components/form/FormGrid";
-import { PageHeader } from "../components/form/PageHeader";
+import { FormGrid, PageHeader } from '../components/form/_index'
 import { ButtonsBar } from "../layout/ButtonsBar";
 import { Info } from "../types/Info";
 
