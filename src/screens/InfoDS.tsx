@@ -6,6 +6,7 @@ import { Button } from '../components/common/Button'
 import { Icon } from '../components/common/Icon'
 import { InfoBackstory, InfoShort } from '../components/info/_index'
 import { Modal } from '../components/modal/Modal'
+import { WarningCard } from '../components/modal/WarningCard'
 import { ButtonsBar } from '../layout/ButtonsBar'
 import { Info } from '../types/Info'
 
@@ -33,7 +34,7 @@ export const InfoDS = () => {
 
     //Estados: idle, loading, error, done
     const [isLoaded, setIsLoaded] = useState(false);
-    const [isOpen, setIsOpen] = useState(false);
+    const [open, setOpen] = useState(false);
     const params = useParams();
     const navigate = useNavigate();
     const navigateToHome = () => navigate("/");
@@ -67,7 +68,7 @@ export const InfoDS = () => {
                     <Icon name='edit' />
                     Edit
                 </Button>
-                <Button onClick={() => setIsOpen(true)}>
+                <Button onClick={() => setOpen(true)}>
                     <Icon name='trash' />
                     Delete
                 </Button>
@@ -76,10 +77,9 @@ export const InfoDS = () => {
                     Back
                 </Button>
             </ButtonsBar>
-            {
-                isOpen &&
-                <Modal type="warning" modalContent={{ title: "Confirmation", text: `Are you sure you want to delete ${dsInfo.name}?`, setIsOpen: setIsOpen, actionFunction: deleteCharacter(params.id) }} />
-            }
+            <Modal open={open}>
+                <WarningCard title="Confirmation" text={`Are you sure you want to delete ${dsInfo.name}?`} setOpen={setOpen} actionFunction={() => deleteCharacter(params.id)} />
+            </Modal>
         </InfoWrapper>
     )
 }

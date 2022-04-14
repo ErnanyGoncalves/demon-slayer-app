@@ -8,6 +8,11 @@ export const ModalCardWrapper = styled.div`
     background-color: var(--white);
     width: 690px;
     height: 422px;
+
+    .rootModal{
+        height:100%;
+    }
+
     .modalStyle{
         display: flex;
         flex-direction: column;

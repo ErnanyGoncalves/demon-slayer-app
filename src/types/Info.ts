@@ -1,7 +1,12 @@
+export interface FormInfo {
+    dsInfo: Info;
+    setDSInfo: (dsInfo:any)=>{};
+}
+
 export interface Info {
     id: number;
     name: string;
-    age: number;
+    age: string;
     gender: string;
     theme?: string;
     backstory?: string;

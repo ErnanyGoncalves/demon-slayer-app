@@ -1,4 +1,4 @@
-import  { useEffect, useState } from 'react';
+import  { useEffect, useRef, useState } from 'react';
 import Picker from 'emoji-picker-react';
 import styled from 'styled-components';
 import { Input } from './Input';
@@ -26,24 +26,31 @@ const EmojiPickerWrapper = styled.div`
 
 `;
 
-export const EmojiPicker = ({emoji}:any) => {
-  const [chosenEmoji, setChosenEmoji] = useState('');
-  const [isOnFocus, setIsOnFocus] = useState(true);
+export const EmojiPicker = ({emoji,setDSInfo,dsInfo}:any) => {
+  const [isOnFocus, setIsOnFocus] = useState(false);
+  const emojiPickerRef = useRef<HTMLDivElement>(null);
+  const emojiInputRef = useRef<HTMLInputElement>(null);
+
+  const onEmojiClick = (event,emojiObject) => setDSInfo({ ...dsInfo, ["emoji"]: emojiObject.emoji });
+
+  const onKeyDown = (ev: KeyboardEvent) => ev.key == ('Backspace' || ev.key == 'Delete') && setDSInfo({ ...dsInfo, ["emoji"]: "" });;
+
+  const handleBlur=(ev)=>{
+    if(emojiPickerRef.current){
+      if(emojiPickerRef.current.contains(ev.target) || ev.target === emojiInputRef.current) return null;
+      else setIsOnFocus(false);
+    }
+    
+  }
 
   useEffect(()=>{
-    setChosenEmoji(emoji);
+    document.addEventListener("click",handleBlur);
   },[]);
-
-  const onEmojiClick = (event,emojiObject) => setChosenEmoji(emojiObject.emoji);
-
-  // const onFocus = ;
-  const onBlur = () => setIsOnFocus(false);
-  const onKeyDown = (ev: KeyboardEvent) => ev.key == ('Backspace' || ev.key == 'Delete') && setChosenEmoji('');
 
   return (
     <EmojiPickerComponentWrapper>
-      <Input onKeyDown={onKeyDown} onFocus={() => setIsOnFocus(true)} onBlur={() => setIsOnFocus(false)} value={chosenEmoji} />
-      {isOnFocus && <EmojiPickerWrapper>
+      <Input ref={emojiInputRef} onKeyDown={onKeyDown} onFocus={() => setIsOnFocus(true)} value={dsInfo.emoji} name="emoji" id="emoji" />
+      {isOnFocus && <EmojiPickerWrapper ref={emojiPickerRef}>
 
         <Picker onEmojiClick={onEmojiClick} />
       </EmojiPickerWrapper>}

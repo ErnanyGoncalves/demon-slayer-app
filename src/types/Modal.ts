@@ -1,3 +1,4 @@
+/** @TODO DELETAR ARQUIVO */
 import { DangerCardProps } from "./DangerCard";
 import { WarningCardProps } from "./WarningCard";
 

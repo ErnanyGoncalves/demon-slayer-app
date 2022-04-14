@@ -9,11 +9,11 @@ const WarningCardWrapper = styled.div`
     
     background: var(--brown-30);
     .modalHeader i{
-        color: var(--brown-50);
+        fill: var(--brown-50);
     }   
 `
 
-export const WarningCard = ({ title, text, setIsOpen, actionFunction }: WarningCardProps) => {
+export const WarningCard = ({ title, text, setOpen, actionFunction }: WarningCardProps) => {
     return (
         <WarningCardWrapper className='modalStyle'>
             <div className='modalHeader'>
@@ -26,7 +26,7 @@ export const WarningCard = ({ title, text, setIsOpen, actionFunction }: WarningC
                     <Icon name='confirm' />
                     Yes
                 </Button>
-                <Button onClick={() => setIsOpen(false)}>
+                <Button onClick={() => setOpen(false)}>
                     <Icon name='cancel' />
                     No
                 </Button>

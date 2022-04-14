@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { Info } from "../../types/Info"
+import { FormInfo } from "../../types/Info"
 import { EmojiPicker } from "./EmojiPicker"
 import { Input } from "./Input"
 import { List } from "./List"
@@ -49,44 +49,56 @@ const FormGridWrapper = styled.div`
     }
 `
 
-export const FormGrid = ({info}: Info) => {
+export const FormGrid = ({ dsInfo, setDSInfo }: FormInfo) => {
     const genders = ["male", "female", "other"];
     const themes = ["stone", "wind", "serpent", "love", "fire", "mist", "insect", "sound", "water", "sun", "lighting", "beast", "moon"];
-    
+
+    const handleChange = ({ target }: any) => {
+        const { id, value } = target;
+        setDSInfo({ ...dsInfo, [id]: value });
+    }
+
     return (
         <FormGridWrapper>
             <div className="a">
                 <label htmlFor="name">Name*</label>
-                <Input value={info && info.name} type="text" name="name" id="name" required />
+                <Input onChange={handleChange} value={dsInfo && dsInfo.name} type="text" name="name" id="name" required />
             </div>
             <div className="b">
                 <label htmlFor="age">Age*</label>
-                <Input value={info && info.age} type="number" name="age" id="age" required />
+                <Input onChange={handleChange} value={dsInfo && dsInfo.age} type="number" name="age" id="age" required />
             </div>
             <div className="c">
                 <label htmlFor="gender">Gender*</label>
-                <List options={genders} selected={info && info.gender} />
+                <List onChange={handleChange} name="gender" id="gender" required>
+                    <option value="---">----------------</option>
+                    {genders.map((gender) => <option key={gender} value={gender}>{gender.charAt(0).toUpperCase() + gender.slice(1)}</option>)}
+                </List>
+
             </div>
             <div className="d">
                 <label htmlFor="power">Power</label>
-                <Input value={info && info.power} type="text" name="power" id="power" />
+                <Input onChange={handleChange} value={dsInfo && dsInfo.power} type="text" name="power" id="power" />
             </div>
             <div className="e">
                 <label htmlFor="emoji">Emoji</label>
-                <EmojiPicker emoji={info && info.emoji} />
+                <EmojiPicker setDSInfo={setDSInfo} dsInfo={dsInfo} emoji={dsInfo && dsInfo.emoji} />
             </div>
             <div className="f">
                 <label htmlFor="theme">Theme*</label>
-                <List options={themes} selected={info && info.theme} />
+                <List onChange={handleChange} name="theme" id="theme" required>
+                    <option value="---">----------------</option>
+                    {themes.map((theme) => <option key={theme} value={theme}>{theme.charAt(0).toUpperCase() + theme.slice(1)}</option>)}
+                </List>
             </div>
             <div className="g">
                 <label htmlFor="photo">Photo*</label>
-                <Input value={info && info.photo} type="url" name="photo" id="photo" required />
+                <Input onChange={handleChange} value={dsInfo && dsInfo.photo} type="url" name="photo" id="photo" required />
             </div>
             <div className="h">
                 <label htmlFor="backstory">Backstory</label>
-                <Textarea>
-                    {info && info.backstory}
+                <Textarea name="backstory" id="backstory" onChange={handleChange}>
+                    {dsInfo && dsInfo.backstory}
                 </Textarea>
             </div>
         </FormGridWrapper>

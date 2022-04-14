@@ -1,8 +1,7 @@
+import { useEffect } from "react";
+import { createPortal } from "react-dom";
 import styled from "styled-components";
-import { ModalProps } from "../../types/Modal";
-import { DangerCard } from "./DangerCard";
 import { ModalCardWrapper } from "./ModalCardWrapper";
-import { WarningCard } from "./WarningCard";
 
 const ModalWrapper = styled.div`
         display: block;
@@ -17,13 +16,23 @@ const ModalWrapper = styled.div`
 `;
 
 
-export const Modal = ({type,modalContent} : ModalProps) => {
-  return (
-    <ModalWrapper>
-            <ModalCardWrapper>
-                    {type === "warning" && <WarningCard title={modalContent.title} text={modalContent.text} setIsOpen={modalContent.setIsOpen} actionFunction={modalContent.actionFunction}  />}
-                    {type === "danger" && <DangerCard title={modalContent.title} text={modalContent.text} fields={modalContent.fields} setIsOpen={modalContent.setIsOpen} />}
-            </ModalCardWrapper>
-    </ModalWrapper>
-  )
-}
+const rootModal = document.createElement("div");
+
+const ModalBody = ({ children }: any) => {
+        useEffect(() => {
+                document.getElementById("modalCardWrapper")?.appendChild(rootModal);
+                rootModal.classList.add("rootModal");
+        }, []);
+
+        return createPortal(children, rootModal);
+};
+
+export const Modal = ({ open, children }: any) => {
+        return open ?
+                <ModalWrapper>
+                        <ModalCardWrapper id="modalCardWrapper">
+                                <ModalBody>{children}</ModalBody>
+                        </ModalCardWrapper>
+                </ModalWrapper>
+                : <></>;
+};

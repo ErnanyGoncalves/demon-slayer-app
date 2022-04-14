@@ -1,6 +1,6 @@
 export interface WarningCardProps {
     title: string;
     text: string;
-    setIsOpen: (isOpen:boolean)=>{};
+    setOpen: (isOpen:boolean)=>{};
     actionFunction: ()=>{};
 }
