@@ -26,7 +26,8 @@ export const FormDS = () => {
 
   const handleSubmit = (ev:any) => {
     ev.preventDefault();
-    setIsOpen(true);
+    if(editMode) setIsOpen(true);
+    else newCharacter();
   }
   const navigateToHome = () => navigate("/");
 
@@ -35,12 +36,37 @@ export const FormDS = () => {
     "name": "AAAA",
     "age": 60,
     "gender": "Male",
-    "theme": "Fire",
+    "theme": "fire",
     "photo": "https://www.seekpng.com/png/detail/27-270295_kirby-super-star-ultra-fuego-fire-kirby-super.png",
     "power": "Fire",
     "emoji": "🎈",
     "backstory": "Poi"
   });
+
+  // Temporário!
+  const dsInfo2 = {
+    "id": 1000,
+    "name": "Kirby",
+    "age": 15,
+    "gender": "Male",
+    "theme": "water",
+    "photo": "https://i.pinimg.com/originals/70/b3/84/70b38471d9a9376782cb8d594e3d3c0f.jpg",
+    "power": "Water",
+    "emoji": "💧",
+    "backstory": "Poio"
+  }
+
+  const newCharacter = () => {
+    axios.post(`http://localhost:3000/demon-slayers`,dsInfo)
+        .then(() => navigate('/'))
+        .catch((err: any) => console.log(err));
+  }
+
+  const editCharacter = (id: any) => {
+    axios.put(`http://localhost:3000/demon-slayers/${id}`,dsInfo2)
+        .then(() => navigate('/'))
+        .catch((err: any) => console.log(err));
+  }
 
   useEffect(() => {
     if (location.pathname.search(/\/[0-9]+\/edit\/?/) != -1) {
@@ -72,7 +98,7 @@ export const FormDS = () => {
         </ButtonsBar>
         {
           isOpen && editMode &&
-          <Modal type="warning" modalContent={{ title: "Confirmation", text: `Are you sure you want to delete ${dsInfo.name}?`, setIsOpen: setIsOpen, actionFunction: ()=>{console.log("Oi")} }} />
+          <Modal type="warning" modalContent={{ title: "Confirmation", text: `Are you sure you want to edit the information of ${dsInfo.name}?`, setIsOpen: setIsOpen, actionFunction: editCharacter(params.id) }} />
         }
         { isOpen && !editMode &&
           <Modal type="danger" modalContent={{ title: "Something is wrong", text: `You forgot to fill the following required fields:`, fields: ["Nome", "Idade", "Sexo"], setIsOpen: setIsOpen }} />

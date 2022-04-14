@@ -10,7 +10,7 @@ const DSCardWrapper = styled(Link)`
     display: flex;
     font-size: 36px;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     gap: 12px;
     box-shadow: 0 4px 4px 2px var(--black-30);    
 

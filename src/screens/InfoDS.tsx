@@ -37,7 +37,9 @@ export const InfoDS = () => {
     const params = useParams();
     const navigate = useNavigate();
     const navigateToHome = () => navigate("/");
-    const navigateToForm = (id: any) => navigate(`/${id}}/edit`);
+    const navigateToForm = (id: number) => {
+        navigate(`/${id}/edit`)
+    };
 
     useEffect(() => {
         // axios.get(`http://localhost:3000/demon-slayers/999`)
