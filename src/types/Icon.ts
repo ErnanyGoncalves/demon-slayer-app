@@ -3,4 +3,5 @@ export type IconNames = "add" | "back" | "cancel" | "confirm" | "edit" | "link" 
 export interface IconProps {
     size?: string;
     name?: IconNames;
+    fill?: string;
 }

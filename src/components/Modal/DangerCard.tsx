@@ -1,17 +1,11 @@
 import styled from 'styled-components'
-import { ButtonsBar } from '../../layout/ButtonsBar';
-import { DangerCardProps } from '../../types/DangerCard';
-import { Button } from '../common/Button';
-import { Icon } from '../common/Icon'
-
+import { ButtonsBar } from '../../layout';
+import { DangerCardProps } from '../../types';
+import { Button, Icon } from '../common';
 
 const DangerCardWrapper = styled.div`
     background: var(--red-30);
     
-
-    .modalHeader i{
-        color: var(--red-50);
-    } 
     .missingFields{
         height:158px;
         ul{
@@ -24,11 +18,11 @@ const DangerCardWrapper = styled.div`
     }
 `
 
-export const DangerCard = ({ title, text, fields, setIsOpen }: DangerCardProps) => {
+export const DangerCard = ({ title, text, fields, setOpen }: DangerCardProps) => {
     return (
         <DangerCardWrapper className='modalStyle'>
             <div className='modalHeader'>
-                <Icon name="cancel" size="109px" />
+            <Icon name="cancel" size="109px" fill="red-50" />
                 <h2>{title}</h2>
             </div>
             <div className='missingFields'>
@@ -38,10 +32,10 @@ export const DangerCard = ({ title, text, fields, setIsOpen }: DangerCardProps) 
                 </ul>
             </div>
             <ButtonsBar>
-                <Button onClick={() => setIsOpen(false)}>
+                <Button onClick={() => setOpen(false)}>
                     <Icon name='back' />
                     Back
-                </Button>
+                </Button>                
             </ButtonsBar>
         </DangerCardWrapper>
     )

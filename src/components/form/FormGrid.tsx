@@ -62,15 +62,15 @@ export const FormGrid = ({ dsInfo, setDSInfo }: FormInfo) => {
         <FormGridWrapper>
             <div className="a">
                 <label htmlFor="name">Name*</label>
-                <Input onChange={handleChange} value={dsInfo && dsInfo.name} type="text" name="name" id="name" required />
+                <Input onChange={handleChange} value={dsInfo && dsInfo.name} type="text" name="name" id="name" />
             </div>
             <div className="b">
                 <label htmlFor="age">Age*</label>
-                <Input onChange={handleChange} value={dsInfo && dsInfo.age} type="number" name="age" id="age" required />
+                <Input onChange={handleChange} value={dsInfo && dsInfo.age} type="number" name="age" id="age" />
             </div>
             <div className="c">
                 <label htmlFor="gender">Gender*</label>
-                <List onChange={handleChange} name="gender" id="gender" required>
+                <List onChange={handleChange} name="gender" id="gender">
                     <option value="---">----------------</option>
                     {genders.map((gender) => <option key={gender} value={gender}>{gender.charAt(0).toUpperCase() + gender.slice(1)}</option>)}
                 </List>
@@ -86,14 +86,14 @@ export const FormGrid = ({ dsInfo, setDSInfo }: FormInfo) => {
             </div>
             <div className="f">
                 <label htmlFor="theme">Theme*</label>
-                <List onChange={handleChange} name="theme" id="theme" required>
+                <List onChange={handleChange} name="theme" id="theme">
                     <option value="---">----------------</option>
                     {themes.map((theme) => <option key={theme} value={theme}>{theme.charAt(0).toUpperCase() + theme.slice(1)}</option>)}
                 </List>
             </div>
             <div className="g">
                 <label htmlFor="photo">Photo*</label>
-                <Input onChange={handleChange} value={dsInfo && dsInfo.photo} type="url" name="photo" id="photo" required />
+                <Input onChange={handleChange} value={dsInfo && dsInfo.photo} type="url" name="photo" id="photo" />
             </div>
             <div className="h">
                 <label htmlFor="backstory">Backstory</label>

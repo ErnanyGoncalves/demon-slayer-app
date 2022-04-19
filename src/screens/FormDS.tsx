@@ -30,8 +30,23 @@ export const FormDS = () => {
   const location = useLocation();
 
   const handleSubmit = (ev: any) => {
+    setErrInfo([]);
     ev.preventDefault();
-    if (editMode) setOpen(true);
+    console.log(dsInfo);
+    let errors = [];
+    if (dsInfo.name === "") errors.push("Name is required");
+    if (dsInfo.age === "") errors.push("Age is required");
+    /** @TODO VERIFICAÇÃO DO INPUT DE IDADE QUANDO APERTA 1--00, por exemplo */
+    // if (isNaN(dsInfo.age)) errors.push("Age must be a valid number");
+    if (dsInfo.age !== "" && Number(dsInfo.age) < 1 || Number(dsInfo) > 1000000) errors.push("Age must be between 1 and 1000000");
+    if (dsInfo.gender === "" || dsInfo.gender === "---") errors.push("Gender is required");
+    if (dsInfo.theme === "" || dsInfo.theme === "---") errors.push("Theme is required");
+    if (dsInfo.photo === "") errors.push("Photo is required");
+
+    if (errors.length > 0 || editMode) {
+      setErrInfo(errors);
+      setOpen(true);
+    }
     else newCharacter();
   }
   const navigateToHome = () => navigate("/");
@@ -48,10 +63,9 @@ export const FormDS = () => {
     "backstory": ""
   });
 
+  const [errInfo, setErrInfo] = useState<string[]>([]);
 
   const newCharacter = () => {
-    
-    console.log("DSINFO",dsInfo);
     axios.post(`http://localhost:3000/demon-slayers`, dsInfo)
       .then(() => navigate('/'))
       .catch((err: any) => console.log(err));
@@ -94,18 +108,17 @@ export const FormDS = () => {
         </ButtonsBar>
 
         {
-          editMode &&
+          editMode && errInfo.length === 0 &&
           <Modal open={open}>
-                <WarningCard title="Confirmation" text={`Are you sure you want to edit the information of ${dsInfo.name}?`} setOpen={setOpen} actionFunction={() => editCharacter(params.id)} />
+            <WarningCard title="Confirmation" text={`Are you sure you want to edit the information of ${dsInfo.name}?`} setOpen={setOpen} actionFunction={() => editCharacter(params.id)} />
           </Modal>
         }
-        {!editMode &&          
+        {errInfo.length > 0 &&
           <Modal open={open}>
-                {/**@TODO Preparar lista de campos zuados do form pra passar em fields */}
-                <DangerCard title="Something is wrong" text={`You forgot to fill the following required fields:`} fields={["Nome", "Idade", "Sexo"]} setOpen={setOpen} />
+            <DangerCard title="Something is wrong" text={`Some of the following fields weren't filled correctly:`} fields={errInfo} setOpen={setOpen} />
           </Modal>
         }
-        
+
       </form>
     </FormDSWrapper>
   )

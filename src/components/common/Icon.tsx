@@ -1,43 +1,35 @@
 import styled from "styled-components";
-import addIcon from "../../assets/icons/add.svg";
-import backIcon from "../../assets/icons/back.svg";
-import cancelIcon from "../../assets/icons/cancel.svg";
-import confirmIcon from "../../assets/icons/confirm.svg";
-import editIcon from "../../assets/icons/edit.svg";
-import linkIcon from "../../assets/icons/link.svg";
-import questionIcon from "../../assets/icons/question.svg";
-import searchIcon from "../../assets/icons/search.svg";
-import trashIcon from "../../assets/icons/trash.svg";
 import { IconNames, IconProps } from "../../types/Icon";
+import { Add, Back, Cancel, Confirm, Edit, Link, Question, Search, Trash } from "../icons";
 
 
 const icons = new Map<IconNames, any>()
-    .set("add", addIcon)
-    .set("back", backIcon)
-    .set("cancel", cancelIcon)
-    .set("confirm", confirmIcon)
-    .set("edit", editIcon)
-    .set("link", linkIcon)
-    .set("question", questionIcon)
-    .set("search", searchIcon)
-    .set("trash", trashIcon);
+    .set("add", <Add />)
+    .set("back", <Back />)
+    .set("cancel", <Cancel />)
+    .set("confirm", <Confirm />)
+    .set("edit", <Edit />)
+    .set("link", <Link />)
+    .set("question", <Question />)
+    .set("search", <Search />)
+    .set("trash", <Trash />);
 
 
-const IconWrapper = styled.i<Omit<IconProps, "name">>`
-    &, img{
-        height: ${props => props.size};
-        width: ${props => props.size};
+const IconWrapper = styled.div<Omit<IconProps, "name">>`
+    
+    width: ${props => props.size ? props.size : "2rem"};
+    height: ${props => props.size ? props.size : "2rem"};
+
+    svg{
+        fill: var(--${props => props.fill ? props.fill : "black"});
     }
-    img{   
-        background-repeat:no-repeat;
-        background-size: 100% 100%;
-    }
-`
 
-export const Icon = ({ size = "2rem", name = "add" }: IconProps) => {
+`;
+
+export const Icon = ({ name = "add" }: IconProps) => {
     return (
-        <IconWrapper size={size}>
-            <img src={icons.get(name)} alt={name} />
+        <IconWrapper>
+            {icons.get(name)}
         </IconWrapper>
     )
 };
