@@ -1,7 +1,6 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import { Button } from "../components/common/Button";
-import { Icon } from "../components/common/Icon";
+import { Button, Icon } from "../components/common";
 
 const IntroWrapper = styled.div`
     padding: 0 20px;
