@@ -33,7 +33,7 @@ export const EmojiPicker = ({emoji,setDSInfo,dsInfo}:any) => {
 
   const onEmojiClick = (event,emojiObject) => setDSInfo({ ...dsInfo, ["emoji"]: emojiObject.emoji });
 
-  const onKeyDown = (ev: KeyboardEvent) => ev.key == ('Backspace' || ev.key == 'Delete') && setDSInfo({ ...dsInfo, ["emoji"]: "" });;
+  const onKeyDown = (ev: KeyboardEvent) => (ev.key == 'Backspace' || ev.key == 'Delete') && setDSInfo({ ...dsInfo, ["emoji"]: "" });
 
   const handleBlur=(ev)=>{
     if(emojiPickerRef.current){

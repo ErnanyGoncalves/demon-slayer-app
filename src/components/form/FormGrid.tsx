@@ -62,7 +62,7 @@ export const FormGrid = ({ dsInfo, setDSInfo }: FormInfo) => {
         <FormGridWrapper>
             <div className="a">
                 <label htmlFor="name">Name*</label>
-                <Input onChange={handleChange} value={dsInfo && dsInfo.name} type="text" name="name" id="name" />
+                <Input maxLength={18} onChange={handleChange} value={dsInfo && dsInfo.name} type="text" name="name" id="name" />
             </div>
             <div className="b">
                 <label htmlFor="age">Age*</label>

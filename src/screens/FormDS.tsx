@@ -32,12 +32,10 @@ export const FormDS = () => {
   const handleSubmit = (ev: any) => {
     setErrInfo([]);
     ev.preventDefault();
-    console.log(dsInfo);
+
     let errors = [];
     if (dsInfo.name === "") errors.push("Name is required");
-    if (dsInfo.age === "") errors.push("Age is required");
-    /** @TODO VERIFICAÇÃO DO INPUT DE IDADE QUANDO APERTA 1--00, por exemplo */
-    // if (isNaN(dsInfo.age)) errors.push("Age must be a valid number");
+    if (dsInfo.age === "") errors.push("A valid age is required");
     if (dsInfo.age !== "" && Number(dsInfo.age) < 1 || Number(dsInfo) > 1000000) errors.push("Age must be between 1 and 1000000");
     if (dsInfo.gender === "" || dsInfo.gender === "---") errors.push("Gender is required");
     if (dsInfo.theme === "" || dsInfo.theme === "---") errors.push("Theme is required");
@@ -94,7 +92,7 @@ export const FormDS = () => {
   return (
     <FormDSWrapper>
       {editMode ? <PageHeader highlight="Edit" title={dsInfo.name + ":"} /> : <PageHeader highlight="New" title="Demon Slayer:" />}
-      <form onSubmit={handleSubmit}>
+      <form noValidate onSubmit={handleSubmit}>
         <FormGrid setDSInfo={setDSInfo} dsInfo={dsInfo} />
         <ButtonsBar>
           <Button type="submit">
