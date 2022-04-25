@@ -5,6 +5,8 @@ import styled from "styled-components"
 import { DSCardList } from "../components/list/DSCardList"
 import { Input } from "../components/form/Input";
 import { Pagination } from "../components/list/Pagination"
+import { useFetchCharacters } from "../hooks";
+import { Loading } from "../components/common";
 
 
 const ListDSWrapper = styled.div`
@@ -16,43 +18,35 @@ const ListDSWrapper = styled.div`
 `;
 
 export const ListDS = () => {
-  const [dsList, setDSList] = useState([{
-    "id": 0,
-    "name": "",
-    "photo": "",
-    "theme": "",
-    "emoji": ""
-  }]);
-  const [currentPage, setCurrentPage] = useState(0);
+  const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
   let [searchParams, setSearchParams] = useSearchParams();
 
+  const { dsList, loading, error, request } = useFetchCharacters(currentPage);
+  useEffect(() => request(), [currentPage]);
 
   useEffect(() => {
     axios.get("http://localhost:3000/demon-slayers")
       .then(({ data }: any) => {
-        if(!searchParams.get("page") || Number(searchParams.get("page")) > Math.ceil(data.length) || Number(searchParams.get("page")) < 1) {
+        if (!searchParams.get("page") || Number(searchParams.get("page")) > Math.ceil(data.length) || Number(searchParams.get("page")) < 1) {
           setCurrentPage(1);
-          setSearchParams({page:"1"})
+          setSearchParams({ page: "1" })
         }
         else setCurrentPage(Number(searchParams.get("page")));
-        setTotalPages(Math.ceil(data.length/6));
+        setTotalPages(Math.ceil(data.length / 6));
       })
       .catch((err: any) => console.log(err));
   }, [searchParams]);
 
-  useEffect(() => {
-    axios.get(`http://localhost:3000/demon-slayers?_page=${currentPage}&_limit=6`)
-      .then(({ data }: any) => setDSList(data))
-      .catch((err: any) => console.log(err));
-  }, [currentPage]);
-
 
   return (
-    <ListDSWrapper>
-      <Input width="100%" />
-      <DSCardList dsList={dsList} />
-      <Pagination  currentPage={currentPage} totalPages={totalPages} />
-    </ListDSWrapper>
+    <>
+      {!loading && dsList && <ListDSWrapper>
+        <Input width="100%" />
+        <DSCardList dsList={dsList} />
+        <Pagination currentPage={currentPage} totalPages={totalPages} />
+      </ListDSWrapper>}
+      {loading && <Loading>Loading...</Loading>}
+    </>
   )
 }

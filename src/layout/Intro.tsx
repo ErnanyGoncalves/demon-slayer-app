@@ -41,9 +41,11 @@ export const Intro = () => {
       <img className="logo" src="src/assets/images/logo.png" alt="Logo" />
       <p>This application was made for you to create and manage your own demon slayers.</p>
       {location.pathname === "/" && <Button onClick={navigateToForm}>
-        <Icon  />
+        <Icon />
         Create
       </Button>}
       {location.pathname !== "/" && <div className="blank"></div>}
+
+
     </IntroWrapper>)
 }

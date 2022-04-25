@@ -6,7 +6,7 @@ export interface FormInfo {
 export interface Info {
     id: number;
     name: string;
-    age: string;
+    age: number;
     gender: string;
     theme?: string;
     backstory?: string;
