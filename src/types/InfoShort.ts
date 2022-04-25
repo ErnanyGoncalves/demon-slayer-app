@@ -1,6 +1,6 @@
 export interface InfoShortProps {
     name: string;
-    age: number;
+    age: string;
     power: string;
     emoji: string;
     photo: string;

@@ -37,7 +37,7 @@ export const InfoShort = ({name,age,power,emoji,photo,gender}: InfoShortProps) =
             <div>
                 <h1>{name}</h1>
                 <div>
-                    <label>Age: <span>{age} year{age > 1 && 's'}</span></label>
+                    <label>Age: <span>{age} year{Number(age) > 1 && 's'}</span></label>
 
                 </div>
                 <div>

@@ -1,21 +1,22 @@
 import axios from "axios";
-import { useCallback, useState } from "react";
+import { useEffect, useState } from "react";
 import { Info } from "../types";
 
 export const useFetchCharacter = (id: string | undefined) => {
     const [dsInfo, setDSInfo] = useState<Info>({
         "id": 0,
         "name": "",
-        "age": 0,
+        "age": "",
         "gender": "",
         "photo": "",
         "power": "",
-        "emoji": ""
+        "emoji": "",
+        "backstory": ""
     });
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(true);
 
-    const request = useCallback(() => {
+    useEffect(() => {
         const url = `http://localhost:3000/demon-slayers/${id}`;
         setLoading(true);
         axios.get(url)
@@ -29,5 +30,5 @@ export const useFetchCharacter = (id: string | undefined) => {
             });
     }, [id]);
 
-    return { dsInfo, error, loading, request }
+    return { dsInfo, setDSInfo, error, loading }
 }

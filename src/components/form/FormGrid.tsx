@@ -57,7 +57,6 @@ export const FormGrid = ({ dsInfo, setDSInfo }: FormInfo) => {
         const { id, value } = target;
         setDSInfo({ ...dsInfo, [id]: value });
     }
-
     return (
         <FormGridWrapper>
             <div className="a">
@@ -72,7 +71,7 @@ export const FormGrid = ({ dsInfo, setDSInfo }: FormInfo) => {
                 <label htmlFor="gender">Gender*</label>
                 <List onChange={handleChange} name="gender" id="gender">
                     <option value="---">----------------</option>
-                    {genders.map((gender) => <option key={gender} value={gender}>{gender.charAt(0).toUpperCase() + gender.slice(1)}</option>)}
+                    {genders.map((gender) => <option key={gender} selected={dsInfo.gender.toLowerCase() === gender} value={gender}>{gender.charAt(0).toUpperCase() + gender.slice(1)}</option>)}
                 </List>
 
             </div>
@@ -88,18 +87,16 @@ export const FormGrid = ({ dsInfo, setDSInfo }: FormInfo) => {
                 <label htmlFor="theme">Theme*</label>
                 <List onChange={handleChange} name="theme" id="theme">
                     <option value="---">----------------</option>
-                    {themes.map((theme) => <option key={theme} value={theme}>{theme.charAt(0).toUpperCase() + theme.slice(1)}</option>)}
+                    {themes.map((theme) => <option key={theme} selected={dsInfo.theme.toLowerCase() === theme} value={theme}>{theme.charAt(0).toUpperCase() + theme.slice(1)}</option>)}
                 </List>
             </div>
             <div className="g">
-                <label htmlFor="photo">Photo*</label>
+                <label htmlFor="photo">Photo URL*</label>
                 <Input onChange={handleChange} value={dsInfo && dsInfo.photo} type="url" name="photo" id="photo" />
             </div>
             <div className="h">
                 <label htmlFor="backstory">Backstory</label>
-                <Textarea name="backstory" id="backstory" onChange={handleChange}>
-                    {dsInfo && dsInfo.backstory}
-                </Textarea>
+                <Textarea name="backstory" value={dsInfo && dsInfo.backstory} id="backstory" onChange={handleChange} />
             </div>
         </FormGridWrapper>
     )

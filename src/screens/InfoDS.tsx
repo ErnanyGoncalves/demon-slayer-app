@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { useEffect, useState } from 'react'
+import {  useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import styled from 'styled-components'
 import { Loading } from '../components/common'
@@ -10,7 +10,6 @@ import { Modal } from '../components/modal/Modal'
 import { WarningCard } from '../components/modal/WarningCard'
 import { useFetchCharacter } from '../hooks'
 import { ButtonsBar } from '../layout/ButtonsBar'
-
 
 const InfoWrapper = styled.div`
     margin: 60px 0px 58px 0;
@@ -24,18 +23,15 @@ const InfoWrapper = styled.div`
 `
 
 export const InfoDS = () => {
-    
+
     const [open, setOpen] = useState(false);
     const params = useParams();
     const navigate = useNavigate();
 
-    const { dsInfo, loading, error, request } = useFetchCharacter(params.id);
-    useEffect(() => request(), []);
+    const { dsInfo, loading, error } = useFetchCharacter(params.id);
 
     const navigateToHome = () => navigate("/");
-    const navigateToForm = (id: number) => {
-        navigate(`/${id}/edit`)
-    };
+    const navigateToForm = (id: number) => navigate(`/${id}/edit`);
 
     const deleteCharacter = (id: any) => {
         axios.delete(`http://localhost:3000/demon-slayers/${id}`)
@@ -43,14 +39,13 @@ export const InfoDS = () => {
             .catch((err: any) => console.log(err));
     }
 
-
     return (
         <>
             {!loading && dsInfo && <InfoWrapper>
                 <InfoShort name={dsInfo.name} age={dsInfo.age} power={dsInfo.power} emoji={dsInfo.emoji} photo={dsInfo.photo} gender={dsInfo.gender} />
                 {dsInfo.backstory ? <InfoBackstory backstory={dsInfo.backstory} /> : <div className='blank' />}
                 <ButtonsBar>
-                    <Button onClick={() => navigateToForm(params.id)}>
+                    <Button onClick={() => navigateToForm(Number(params.id))}>
                         <Icon name='edit' />
                         Edit
                     </Button>

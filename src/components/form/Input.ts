@@ -18,6 +18,11 @@ export const Input = styled.input<InputProps>`
             color: var(--black-50);
             font-style: italic;
         }
+
+        & svg{
+            width: 2rem;
+            height: 2rem;
+        }
          
         
         :focus{

@@ -8,7 +8,6 @@ import { Pagination } from "../components/list/Pagination"
 import { useFetchCharacters } from "../hooks";
 import { Loading } from "../components/common";
 
-
 const ListDSWrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -19,30 +18,19 @@ const ListDSWrapper = styled.div`
 
 export const ListDS = () => {
   const [currentPage, setCurrentPage] = useState(1);
-  const [totalPages, setTotalPages] = useState(0);
   let [searchParams, setSearchParams] = useSearchParams();
 
-  const { dsList, loading, error, request } = useFetchCharacters(currentPage);
-  useEffect(() => request(), [currentPage]);
+  const { dsList, loading, error, totalPages } = useFetchCharacters(currentPage);
 
   useEffect(() => {
-    axios.get("http://localhost:3000/demon-slayers")
-      .then(({ data }: any) => {
-        if (!searchParams.get("page") || Number(searchParams.get("page")) > Math.ceil(data.length) || Number(searchParams.get("page")) < 1) {
-          setCurrentPage(1);
-          setSearchParams({ page: "1" })
-        }
-        else setCurrentPage(Number(searchParams.get("page")));
-        setTotalPages(Math.ceil(data.length / 6));
-      })
-      .catch((err: any) => console.log(err));
+    setCurrentPage(Number(searchParams.get("page")) ? Number(searchParams.get("page")) : 1);
   }, [searchParams]);
 
 
   return (
     <>
       {!loading && dsList && <ListDSWrapper>
-        <Input width="100%" />
+        <Input placeholder="Search: character; theme; power; emoji" />
         <DSCardList dsList={dsList} />
         <Pagination currentPage={currentPage} totalPages={totalPages} />
       </ListDSWrapper>}
