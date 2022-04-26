@@ -23,12 +23,11 @@ const IconWrapper = styled.div<Omit<IconProps, "name">>`
     svg{
         fill: var(--${props => props.fill ? props.fill : "black"});
     }
-
 `;
 
-export const Icon = ({ name = "add" }: IconProps) => {
+export const Icon = ({ name = "add", size, fill }: IconProps) => {
     return (
-        <IconWrapper>
+        <IconWrapper size={size} fill={fill}>
             {icons.get(name)}
         </IconWrapper>
     )
