@@ -8,6 +8,7 @@ export const useFetchCharacter = (id: string | undefined) => {
         "name": "",
         "age": "",
         "gender": "",
+        "theme": "",
         "photo": "",
         "power": "",
         "emoji": "",
@@ -17,17 +18,21 @@ export const useFetchCharacter = (id: string | undefined) => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        const url = `http://localhost:3000/demon-slayers/${id}`;
-        setLoading(true);
-        axios.get(url)
-            .then(({ data }: any) => {
-                setDSInfo(data);
-                setLoading(false);
-            })
-            .catch((err: any) => {
-                setError(err);
-                setLoading(false);
-            });
+        if (id != undefined) {
+            const url = `http://localhost:3000/demon-slayers/${id}`;
+            setLoading(true);
+            axios.get(url)
+                .then(({ data }: any) => {
+                    setDSInfo(data);
+                    setLoading(false);
+                })
+                .catch((err: any) => {
+                    setError(err);
+                    setLoading(false);
+                });
+        } else {
+            setLoading(false);
+        }
     }, [id]);
 
     return { dsInfo, setDSInfo, error, loading }

@@ -31,7 +31,6 @@ export const FormDS = () => {
   const location = useLocation();
 
   const { dsInfo, setDSInfo, loading, error } = useFetchCharacter(params.id);
-  console.log(dsInfo, error, "--------")
   const handleSubmit = (ev: any) => {
     setErrInfo([]);
     ev.preventDefault();
