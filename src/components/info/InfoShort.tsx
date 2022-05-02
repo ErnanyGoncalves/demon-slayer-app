@@ -44,9 +44,9 @@ export const InfoShort = ({name,age,power,emoji,photo,gender}: InfoShortProps) =
                     <label>Gender: <span>{gender.charAt(0).toUpperCase() + gender.slice(1)}</span></label>
 
                 </div>
-                <div>
+                {power && <div>
                     <label>Power: <span>{power} {emoji}</span></label>
-                </div>
+                </div>}
             </div>
         </InfoShortWrapper>
     )

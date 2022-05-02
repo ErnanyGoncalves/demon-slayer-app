@@ -155,26 +155,26 @@
       "backstory": "asfoihsauhhosfihosfiofasiohfsoiahiofsahiosfa"
     },
     {
-      "id": 1650973722577,
-      "name": "Rodrigo Buzato",
-      "age": "28",
-      "gender": "male",
-      "theme": "fire",
-      "photo": "https://pps.whatsapp.net/v/t61.24694-24/177528748_3293061480916655_7571108034820468184_n.jpg?ccb=11-4&oh=01_AVzlj3vC_CXDogoxZSJT8-7ccCcbKhgJMNP1BwojTXtGYQ&oe=6275D654",
-      "power": "Love",
-      "emoji": "💔",
-      "backstory": "Profissional focado no desenvolvimento de APIs e integração de sistemas.\nAtualmente trabalhando com a Plataforma de APIs da Sensedia, integrando sistemas através do Gateway.\nPossui também conhecimentos em Tecnologias Java para o desenvolvimento de aplicações Backend utilizando Banco de Dados SQL."
-    },
-    {
       "id": 1650993086708,
       "name": "Luiz Gustavo",
       "age": "20",
       "gender": "male",
-      "theme": "moon",
+      "theme": "wind",
       "photo": "https://media-exp1.licdn.com/dms/image/C4E03AQFsybkaXjVSuQ/profile-displayphoto-shrink_800_800/0/1615121341849?e=1656547200&v=beta&t=SoSadXt4yMj6H0Dj4bg26b0Dgd9kIwOMfqOK6-twBKc",
       "power": "Lazyness",
       "emoji": "🤖",
       "backstory": "Formado pela ETEC João Belarmino, no curso de Ensino Médio Integrado ao Técnico de Informática. Atualmente, estudante de Ciências da Computação na UniFAJ.\n\nhttps://github.com/luizggritte"
+    },
+    {
+      "id": 1651509002246,
+      "name": "Cavera",
+      "age": "999",
+      "gender": "other",
+      "theme": "stone",
+      "photo": "https://i.ytimg.com/vi/IDjofTD1z1g/maxresdefault.jpg",
+      "power": "",
+      "emoji": "",
+      "backstory": ""
     }
   ]
 }

@@ -1,5 +1,5 @@
 import axios from 'axios'
-import {  useState } from 'react'
+import { useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import styled from 'styled-components'
 import { Loading } from '../components/common'
@@ -31,6 +31,7 @@ export const InfoDS = () => {
     const { dsInfo, loading, error } = useFetchCharacter(params.id);
 
     const navigateToHome = () => navigate("/");
+    const navigateToFirstPage = () => navigate("/?page=1");
     const navigateToForm = (id: number) => navigate(`/${id}/edit`);
 
     const deleteCharacter = (id: any) => {

@@ -31,6 +31,10 @@ export const FormDS = () => {
   const location = useLocation();
 
   const { dsInfo, setDSInfo, loading, error } = useFetchCharacter(params.id);
+
+
+  const validateUrl = (value: string) => /^(?:(?:(?:https?|ftp):)?\/\/)(?:\S+(?::\S*)?@)?(?:(?!(?:10|127)(?:\.\d{1,3}){3})(?!(?:169\.254|192\.168)(?:\.\d{1,3}){2})(?!172\.(?:1[6-9]|2\d|3[0-1])(?:\.\d{1,3}){2})(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)(?:\.(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)*(?:\.(?:[a-z\u00a1-\uffff]{2,})))(?::\d{2,5})?(?:[/?#]\S*)?$/i.test(value);
+
   const handleSubmit = (ev: any) => {
     setErrInfo([]);
     ev.preventDefault();
@@ -41,7 +45,7 @@ export const FormDS = () => {
     if (dsInfo.age !== "" && Number(dsInfo.age) < 1 || Number(dsInfo) > 1000000) errors.push("Age must be between 1 and 1000000");
     if (dsInfo.gender === "" || dsInfo.gender === "---") errors.push("Gender is required");
     if (dsInfo.theme === "" || dsInfo.theme === "---") errors.push("Theme is required");
-    if (dsInfo.photo === "") errors.push("Photo is required");
+    if (dsInfo.photo === "" || !validateUrl(dsInfo.photo)) errors.push("A valid photo url is required");
 
     if (errors.length > 0 || editMode) {
       setErrInfo(errors);
@@ -49,6 +53,9 @@ export const FormDS = () => {
     }
     else newCharacter();
   }
+
+
+
   const navigateToHome = () => navigate("/");
 
   const [errInfo, setErrInfo] = useState<string[]>([]);
