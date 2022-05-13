@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import { InputProps } from "../../types/Input";
 
-/** @TODO Achar uma forma de colocar icone no input (não obrigatório)  */
 export const Input = styled.input<InputProps>`       
         border: 2px solid var(--black); 
         box-sizing:border-box;        

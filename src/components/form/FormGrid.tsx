@@ -77,7 +77,7 @@ export const FormGrid = ({ dsInfo, setDSInfo }: FormInfo) => {
             </div>
             <div className="d">
                 <label htmlFor="power">Power</label>
-                <Input onChange={handleChange} value={dsInfo && dsInfo.power} type="text" name="power" id="power" />
+                <Input maxLength={18} onChange={handleChange} value={dsInfo && dsInfo.power} type="text" name="power" id="power" />
             </div>
             <div className="e">
                 <label htmlFor="emoji">Emoji</label>

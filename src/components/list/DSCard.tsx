@@ -13,6 +13,7 @@ const DSCardWrapper = styled(Link)`
     justify-content: flex-start;
     gap: 12px;
     box-shadow: 0 4px 4px 2px var(--black-30);    
+    
 
     img{
         width:108px;
@@ -86,11 +87,13 @@ const DSCardWrapper = styled(Link)`
 `
 
 
-export const DSCard = ({id,name,theme,photo,emoji} : CardProps) => {
-  return (
-    <DSCardWrapper className={theme} to={`/${id}/details`}>
-        <img className='cardPicture' src={photo} alt={name} />
-        {name} {emoji}
-    </DSCardWrapper>
-  )
+
+export const DSCard = ({ id, name, theme, photo, emoji }: CardProps) => {
+    return (
+        <DSCardWrapper className={theme} to={`/${id}/details`}>
+            <img className='cardPicture' src={photo} alt={name} />
+                {name}
+                {emoji}
+        </DSCardWrapper>
+    )
 }

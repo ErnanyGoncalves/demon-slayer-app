@@ -40,7 +40,15 @@ export const GlobalStyle = createGlobalStyle`
 
     h2{
         font-size: 36px;
+        font-weight: 400;   
     }
+
+    h3{
+        font-size: 24px;
+        font-weight: 400;
+    }
+
+    
 
     body{
         background-color: var(--gray);
